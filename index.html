@@ -981,3 +981,49 @@ footer span {
                 </a>
 
             </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+</main>
+
+<!-- FOOTER -->
+
+<footer>
+
+    <div class="container">
+
+        © <span id="year"></span>
+        <span>Craft Infra &amp; Design</span>.
+        All Rights Reserved.
+
+        <br>
+
+        Architecture · Construction · Design
+
+    </div>
+
+</footer>
+
+<script>
+
+// Automatic current year
+
+document.getElementById("year").textContent =
+    new Date().getFullYear();
+
+// Close mobile menu after clicking a link
+
+document.querySelectorAll(".nav-links a").forEach(link => {
+    link.addEventListener("click", () => {
+        document.querySelector(".nav-links").classList.remove("show");
+    });
+});
+
+</script>
+
+</body>
+</html>
