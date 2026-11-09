@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#100d0b">
+
 <title>Craft Infra & Design | Turning Visions Into Reality</title>
 <meta name="description" content="Craft Infra & Design - Architecture, construction, interior and exterior design.">
 
@@ -21,7 +22,11 @@
   --line:rgba(198,155,96,.22);
 }
 
-* { margin:0; padding:0; box-sizing:border-box; }
+* {
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
 
 html { scroll-behavior:smooth; }
 
@@ -32,9 +37,15 @@ body {
   overflow-x:hidden;
 }
 
-a { color:inherit; text-decoration:none; }
+a {
+  color:inherit;
+  text-decoration:none;
+}
 
-.container { width:min(1160px,90%); margin:auto; }
+.container {
+  width:min(1160px,90%);
+  margin:auto;
+}
 
 .gold { color:var(--gold-light); }
 
@@ -80,7 +91,11 @@ header {
   gap:25px;
 }
 
-.logo { display:flex; align-items:center; gap:12px; }
+.logo {
+  display:flex;
+  align-items:center;
+  gap:12px;
+}
 
 .logo-mark {
   width:42px;
@@ -130,7 +145,7 @@ header {
   color:var(--gold-light)!important;
 }
 
-/* HERO BACKGROUND */
+/* HERO */
 
 .hero {
   min-height:780px;
@@ -141,8 +156,7 @@ header {
   align-items:center;
   overflow:hidden;
   isolation:isolate;
-  background:
-    radial-gradient(ellipse at 65% 55%,#39271a 0%,#17100c 48%,#0c0a09 100%);
+  background:radial-gradient(ellipse at 65% 55%,#39271a 0%,#17100c 48%,#0c0a09 100%);
 }
 
 .hero-background {
@@ -183,11 +197,9 @@ header {
   letter-spacing:8px;
   color:rgba(238,216,186,.065);
   pointer-events:none;
-  -webkit-mask-image:linear-gradient(to bottom,black,transparent 90%);
-  mask-image:linear-gradient(to bottom,black,transparent 90%);
 }
 
-/* SMOKE BEHIND THE FOREGROUND PHOTO */
+/* SMOKE */
 
 .smoke-layer {
   position:absolute;
@@ -222,15 +234,15 @@ header {
   }
 }
 
-/* FOREGROUND PHOTO */
+/* FEATURED PHOTO */
 
 .hero-portrait {
   position:absolute;
   z-index:1;
-  right:5%;
+  right:4%;
   bottom:0;
-  width:min(45%,600px);
-  height:86%;
+  width:min(48%,650px);
+  height:90%;
   display:flex;
   align-items:flex-end;
   justify-content:center;
@@ -238,27 +250,28 @@ header {
 }
 
 .hero-portrait img {
+  display:block;
   width:100%;
   height:100%;
   object-fit:contain;
   object-position:center bottom;
-  filter:brightness(.9) contrast(1.06) saturate(.85);
-  -webkit-mask-image:radial-gradient(ellipse at 53% 48%,black 43%,rgba(0,0,0,.92) 62%,transparent 100%);
-  mask-image:radial-gradient(ellipse at 53% 48%,black 43%,rgba(0,0,0,.92) 62%,transparent 100%);
+  filter:brightness(1) contrast(1.08) saturate(.95);
+  -webkit-mask-image:linear-gradient(to bottom,transparent 0%,black 10%,black 88%,transparent 100%);
+  mask-image:linear-gradient(to bottom,transparent 0%,black 10%,black 88%,transparent 100%);
 }
 
 .portrait-glow {
   position:absolute;
   z-index:-1;
   bottom:5%;
-  right:12%;
-  width:75%;
-  height:60%;
-  background:radial-gradient(ellipse,rgba(175,119,65,.22),transparent 70%);
-  filter:blur(55px);
+  right:10%;
+  width:85%;
+  height:70%;
+  background:radial-gradient(ellipse,rgba(198,155,96,.35),transparent 70%);
+  filter:blur(65px);
 }
 
-/* HERO CONTENT */
+/* HERO TEXT */
 
 .hero-content {
   position:relative;
@@ -335,10 +348,25 @@ header {
   border:1px solid var(--gold);
 }
 
-.btn-primary { background:var(--gold); color:#17100a; }
-.btn-primary:hover { background:var(--gold-light); transform:translateY(-3px); }
-.btn-outline { color:var(--gold-light); background:rgba(0,0,0,.25); }
-.btn-outline:hover { background:var(--gold); color:#17100a; }
+.btn-primary {
+  background:var(--gold);
+  color:#17100a;
+}
+
+.btn-primary:hover {
+  background:var(--gold-light);
+  transform:translateY(-3px);
+}
+
+.btn-outline {
+  color:var(--gold-light);
+  background:rgba(0,0,0,.25);
+}
+
+.btn-outline:hover {
+  background:var(--gold);
+  color:#17100a;
+}
 
 .scroll-note {
   position:absolute;
@@ -420,9 +448,15 @@ header {
 
 /* SERVICES */
 
-.services { padding:115px 0; background:#0d0b09; }
+.services {
+  padding:115px 0;
+  background:#0d0b09;
+}
 
-.section-heading { text-align:center; margin-bottom:55px; }
+.section-heading {
+  text-align:center;
+  margin-bottom:55px;
+}
 
 .services-grid {
   display:grid;
@@ -483,11 +517,18 @@ header {
   line-height:1.1;
 }
 
-.statement p { color:var(--muted); font-size:13px; letter-spacing:1px; }
+.statement p {
+  color:var(--muted);
+  font-size:13px;
+  letter-spacing:1px;
+}
 
 /* WORK */
 
-.work { padding:115px 0; background:#15100c; }
+.work {
+  padding:115px 0;
+  background:#15100c;
+}
 
 .work-grid {
   display:grid;
@@ -504,8 +545,13 @@ header {
   background:linear-gradient(145deg,#342419,#100d0b);
 }
 
-.work-card:nth-child(2) { background:linear-gradient(145deg,#473426,#17100c); }
-.work-card:nth-child(3) { background:linear-gradient(145deg,#29241f,#100d0b); }
+.work-card:nth-child(2) {
+  background:linear-gradient(145deg,#473426,#17100c);
+}
+
+.work-card:nth-child(3) {
+  background:linear-gradient(145deg,#29241f,#100d0b);
+}
 
 .work-card::before {
   content:"";
@@ -537,11 +583,19 @@ header {
   font-weight:500;
 }
 
-.work-note { color:var(--muted); font-size:11px; margin-top:22px; text-align:center; }
+.work-note {
+  color:var(--muted);
+  font-size:11px;
+  margin-top:22px;
+  text-align:center;
+}
 
 /* PROCESS */
 
-.process { padding:110px 0; background:#0e0c0a; }
+.process {
+  padding:110px 0;
+  background:#0e0c0a;
+}
 
 .process-grid {
   display:grid;
@@ -550,10 +604,29 @@ header {
   margin-top:55px;
 }
 
-.process-item { border-top:1px solid var(--gold); padding-top:22px; }
-.process-item span { color:var(--gold); font-family:'Cormorant Garamond',serif; font-size:32px; }
-.process-item h3 { font-family:'Cormorant Garamond',serif; font-size:24px; margin:15px 0 10px; font-weight:500; }
-.process-item p { color:var(--muted); font-size:12px; line-height:1.8; }
+.process-item {
+  border-top:1px solid var(--gold);
+  padding-top:22px;
+}
+
+.process-item span {
+  color:var(--gold);
+  font-family:'Cormorant Garamond',serif;
+  font-size:32px;
+}
+
+.process-item h3 {
+  font-family:'Cormorant Garamond',serif;
+  font-size:24px;
+  margin:15px 0 10px;
+  font-weight:500;
+}
+
+.process-item p {
+  color:var(--muted);
+  font-size:12px;
+  line-height:1.8;
+}
 
 /* CONTACT */
 
@@ -576,9 +649,20 @@ header {
   max-width:450px;
 }
 
-.contact-detail { padding:18px 0; border-bottom:1px solid var(--line); }
-.contact-detail small { color:var(--gold); letter-spacing:2px; font-size:9px; text-transform:uppercase; }
-.contact-detail p,.contact-detail a {
+.contact-detail {
+  padding:18px 0;
+  border-bottom:1px solid var(--line);
+}
+
+.contact-detail small {
+  color:var(--gold);
+  letter-spacing:2px;
+  font-size:9px;
+  text-transform:uppercase;
+}
+
+.contact-detail p,
+.contact-detail a {
   display:block;
   margin-top:8px;
   color:var(--white);
@@ -586,7 +670,12 @@ header {
   overflow-wrap:anywhere;
 }
 
-.contact-action { margin-top:28px; display:flex; gap:12px; flex-wrap:wrap; }
+.contact-action {
+  margin-top:28px;
+  display:flex;
+  gap:12px;
+  flex-wrap:wrap;
+}
 
 .contact-panel {
   border:1px solid var(--line);
@@ -604,7 +693,12 @@ header {
   margin-bottom:15px;
 }
 
-.contact-panel p { color:var(--muted); font-size:13px; line-height:1.9; margin-bottom:25px; }
+.contact-panel p {
+  color:var(--muted);
+  font-size:13px;
+  line-height:1.9;
+  margin-bottom:25px;
+}
 
 /* FOOTER */
 
@@ -622,30 +716,73 @@ footer {
   flex-wrap:wrap;
 }
 
-.footer-inner p { color:#8e8277; font-size:10px; letter-spacing:1px; }
-.footer-brand { font-family:'Cormorant Garamond',serif; color:var(--gold-light); font-size:20px; }
+.footer-inner p {
+  color:#8e8277;
+  font-size:10px;
+  letter-spacing:1px;
+}
+
+.footer-brand {
+  font-family:'Cormorant Garamond',serif;
+  color:var(--gold-light);
+  font-size:20px;
+}
 
 /* RESPONSIVE */
 
 @media(max-width:850px) {
   .nav-links { gap:14px; }
   .nav-links a { font-size:9px; }
-  .about-grid,.contact-grid { grid-template-columns:1fr; gap:40px; }
+
+  .about-grid,
+  .contact-grid {
+    grid-template-columns:1fr;
+    gap:40px;
+  }
+
   .services-grid { grid-template-columns:repeat(2,1fr); }
   .work-grid { grid-template-columns:repeat(2,1fr); }
   .process-grid { grid-template-columns:repeat(2,1fr); }
 }
 
 @media(max-width:600px) {
-  .navbar { min-height:75px; flex-wrap:wrap; padding:12px 0; }
+  .navbar {
+    min-height:75px;
+    flex-wrap:wrap;
+    padding:12px 0;
+  }
+
   .logo-name { font-size:17px; }
-  .nav-links { width:100%; justify-content:space-between; gap:8px; padding-bottom:8px; }
-  .nav-links a { font-size:8px; letter-spacing:.7px; }
+
+  .nav-links {
+    width:100%;
+    justify-content:space-between;
+    gap:8px;
+    padding-bottom:8px;
+  }
+
+  .nav-links a {
+    font-size:8px;
+    letter-spacing:.7px;
+  }
+
   .nav-contact { padding:7px 9px; }
 
-  .hero { min-height:760px; height:100svh; }
-  .hero-background { object-position:center; opacity:.43; }
-  .hero-watermark { font-size:15vw; letter-spacing:2px; top:34%; }
+  .hero {
+    min-height:760px;
+    height:100svh;
+  }
+
+  .hero-background {
+    object-position:center;
+    opacity:.43;
+  }
+
+  .hero-watermark {
+    font-size:15vw;
+    letter-spacing:2px;
+    top:34%;
+  }
 
   .hero-content {
     width:90%;
@@ -667,16 +804,30 @@ footer {
     letter-spacing:1px;
   }
 
-  .hero-tag { font-size:9px; letter-spacing:3px; margin-bottom:22px; }
-  .hero-subtitle { font-size:9px; letter-spacing:2px; margin-top:25px; }
-  .hero-description { font-size:11px; max-width:310px; margin:14px 0 20px; }
+  .hero-tag {
+    font-size:9px;
+    letter-spacing:3px;
+    margin-bottom:22px;
+  }
+
+  .hero-subtitle {
+    font-size:9px;
+    letter-spacing:2px;
+    margin-top:25px;
+  }
+
+  .hero-description {
+    font-size:11px;
+    max-width:310px;
+    margin:14px 0 20px;
+  }
 
   .hero-portrait {
-    right:-10%;
+    right:-8%;
     bottom:0;
-    width:74%;
-    height:57%;
-    opacity:.72;
+    width:78%;
+    height:58%;
+    opacity:.8;
   }
 
   .hero-portrait img {
@@ -685,27 +836,58 @@ footer {
     mask-image:linear-gradient(to bottom,transparent 0%,black 15%,black 75%,transparent 100%);
   }
 
-  .smoke-layer { width:270px; height:420px; }
+  .smoke-layer {
+    width:270px;
+    height:420px;
+  }
+
   .smoke-a { right:-10%; }
   .smoke-b { right:20%; }
   .smoke-c { right:-15%; }
 
   .scroll-note { bottom:15px; }
 
-  .btn { padding:13px 16px; font-size:9px; }
-  .about,.services,.work,.process,.contact { padding:80px 0; }
+  .btn {
+    padding:13px 16px;
+    font-size:9px;
+  }
+
+  .about,
+  .services,
+  .work,
+  .process,
+  .contact {
+    padding:80px 0;
+  }
+
   .about-visual { min-height:320px; }
   .about-visual-inner { min-height:280px; }
-  .services-grid,.work-grid { grid-template-columns:1fr; }
+
+  .services-grid,
+  .work-grid {
+    grid-template-columns:1fr;
+  }
+
   .service-card { min-height:210px; }
   .work-card { min-height:260px; }
-  .process-grid { grid-template-columns:1fr 1fr; gap:30px 18px; }
+
+  .process-grid {
+    grid-template-columns:1fr 1fr;
+    gap:30px 18px;
+  }
+
   .contact-panel { padding:25px; }
-  .footer-inner { justify-content:center; text-align:center; }
+
+  .footer-inner {
+    justify-content:center;
+    text-align:center;
+  }
 }
 
 @media(prefers-reduced-motion:reduce) {
-  *,*::before,*::after {
+  *,
+  *::before,
+  *::after {
     animation-duration:.01ms!important;
     animation-iteration-count:1!important;
     scroll-behavior:auto!important;
@@ -738,10 +920,10 @@ footer {
 
 <main>
 
-<!-- HERO -->
+<!-- HERO SECTION -->
+
 <section class="hero" id="home">
 
-  <!-- ORIGINAL BUILDING BACKGROUND -->
   <img
     class="hero-background"
     src="./WhatsApp%20Image%202026-11-09%20at%204.53.08%20PM.jpeg"
@@ -749,28 +931,38 @@ footer {
   >
 
   <div class="hero-overlay"></div>
+
   <div class="hero-watermark">CRAFT INFRA DESIGN</div>
 
-  <!-- SMOKE BEHIND NEW PHOTO -->
+  <!-- SMOKE EFFECT -->
+
   <div class="smoke-layer smoke-a"></div>
   <div class="smoke-layer smoke-b"></div>
   <div class="smoke-layer smoke-c"></div>
   <div class="smoke-layer smoke-d"></div>
   <div class="smoke-layer smoke-e"></div>
 
-  <!-- NEW PHOTO ON RIGHT SIDE -->
+  <!-- YOUR FEATURED PHOTO -->
+
   <div class="hero-portrait">
     <div class="portrait-glow"></div>
+
     <img
-      src="./WhatsApp%20Image%202026-11-07%20at%208.13.15%20PM.jpeg"
+      src="./WhatsApp%20Image%202026-11-07%20at%208.13.15%20PM.jpeg?v=2"
       alt="Craft Infra Design featured photograph"
+      loading="eager"
+      fetchpriority="high"
     >
   </div>
 
   <!-- HERO TEXT -->
+
   <div class="hero-content">
     <div class="hero-text">
-      <p class="hero-tag">Architecture · Construction · Design</p>
+
+      <p class="hero-tag">
+        Architecture · Construction · Design
+      </p>
 
       <h1 class="hero-title">
         <span>CRAFT</span>
@@ -778,7 +970,9 @@ footer {
         <span>DESIGN</span>
       </h1>
 
-      <p class="hero-subtitle">Turning Visions Into Reality</p>
+      <p class="hero-subtitle">
+        Turning Visions Into Reality
+      </p>
 
       <p class="hero-description">
         We bring ideas to life through thoughtful architecture,
@@ -787,17 +981,26 @@ footer {
       </p>
 
       <div class="hero-buttons">
-        <a href="#services" class="btn btn-primary">Explore Services</a>
-        <a href="#contact" class="btn btn-outline">Start a Project</a>
+        <a href="#services" class="btn btn-primary">
+          Explore Services
+        </a>
+
+        <a href="#contact" class="btn btn-outline">
+          Start a Project
+        </a>
       </div>
+
     </div>
   </div>
 
   <div class="scroll-note">Scroll to explore</div>
+
 </section>
 
-<!-- ABOUT -->
+<!-- ABOUT SECTION -->
+
 <section class="about" id="about">
+
   <div class="container about-grid">
 
     <div class="about-visual">
@@ -810,7 +1013,9 @@ footer {
     </div>
 
     <div class="about-content">
+
       <span class="eyebrow">Who We Are</span>
+
       <h2 class="section-title">
         Creating Spaces.<br>
         <span class="gold">Building Dreams.</span>
@@ -835,19 +1040,29 @@ footer {
         give that idea clarity, character and a design of its own.
       </p>
 
-      <div class="about-signature">Craft Infra & Design</div>
+      <div class="about-signature">
+        Craft Infra & Design
+      </div>
+
     </div>
 
   </div>
+
 </section>
 
-<!-- SERVICES -->
+<!-- SERVICES SECTION -->
+
 <section class="services" id="services">
+
   <div class="container">
 
     <div class="section-heading">
       <span class="eyebrow">What We Do</span>
-      <h2 class="section-title">Our <span class="gold">Expertise</span></h2>
+
+      <h2 class="section-title">
+        Our <span class="gold">Expertise</span>
+      </h2>
+
       <p class="section-copy" style="margin:auto">
         Thoughtful planning, creative design and construction
         solutions for spaces made around your vision.
@@ -859,66 +1074,100 @@ footer {
       <article class="service-card">
         <div class="service-number">01</div>
         <h3>Building Construction</h3>
-        <p>Residential and commercial construction planning focused on functional spaces and thoughtful execution.</p>
+        <p>
+          Residential and commercial construction planning
+          focused on functional spaces and thoughtful execution.
+        </p>
       </article>
 
       <article class="service-card">
         <div class="service-number">02</div>
         <h3>Interior Design</h3>
-        <p>Beautiful and practical interiors with attention to space, materials, details and comfort.</p>
+        <p>
+          Beautiful and practical interiors with attention
+          to space, materials, details and comfort.
+        </p>
       </article>
 
       <article class="service-card">
         <div class="service-number">03</div>
         <h3>Exterior Design</h3>
-        <p>Exterior concepts that give buildings a distinctive character and a refined visual identity.</p>
+        <p>
+          Exterior concepts that give buildings a distinctive
+          character and a refined visual identity.
+        </p>
       </article>
 
       <article class="service-card">
         <div class="service-number">04</div>
         <h3>Architectural Design</h3>
-        <p>Creative architectural concepts and space planning designed around project requirements.</p>
+        <p>
+          Creative architectural concepts and space planning
+          designed around project requirements.
+        </p>
       </article>
 
       <article class="service-card">
         <div class="service-number">05</div>
         <h3>3D Elevation & Visualization</h3>
-        <p>Visualize your project with 3D concepts and elevation designs before construction begins.</p>
+        <p>
+          Visualize your project with 3D concepts and elevation
+          designs before construction begins.
+        </p>
       </article>
 
       <article class="service-card">
         <div class="service-number">06</div>
         <h3>Renovation & Remodeling</h3>
-        <p>Reimagining existing spaces with fresh design ideas, improved layouts and thoughtful updates.</p>
+        <p>
+          Reimagining existing spaces with fresh design ideas,
+          improved layouts and thoughtful updates.
+        </p>
       </article>
 
     </div>
   </div>
+
 </section>
 
-<!-- STATEMENT -->
+<!-- PHILOSOPHY -->
+
 <section class="statement">
+
   <span class="eyebrow">Our Philosophy</span>
+
   <h2>
     Great spaces are not just built.
     They are <span class="gold">thoughtfully created.</span>
   </h2>
-  <p>CRAFT INFRA & DESIGN — TURNING VISIONS INTO REALITY</p>
+
+  <p>
+    CRAFT INFRA & DESIGN — TURNING VISIONS INTO REALITY
+  </p>
+
 </section>
 
-<!-- WORK -->
+<!-- OUR WORK -->
+
 <section class="work" id="work">
+
   <div class="container">
 
     <div class="section-heading">
       <span class="eyebrow">Ideas Into Reality</span>
-      <h2 class="section-title">Our <span class="gold">Work</span></h2>
+
+      <h2 class="section-title">
+        Our <span class="gold">Work</span>
+      </h2>
+
       <p class="section-copy" style="margin:auto">
-        A space for our design concepts, architectural visualizations and project photographs.
+        A space for our design concepts, architectural
+        visualizations and project photographs.
       </p>
     </div>
 
     <div class="work-grid">
+
       <article class="work-card">
         <div class="work-content">
           <span>01 · Architecture</span>
@@ -939,6 +1188,7 @@ footer {
           <h3>3D Elevation</h3>
         </div>
       </article>
+
     </div>
 
     <p class="work-note">
@@ -946,53 +1196,71 @@ footer {
     </p>
 
   </div>
+
 </section>
 
 <!-- PROCESS -->
+
 <section class="process">
+
   <div class="container">
 
     <div class="section-heading">
       <span class="eyebrow">How We Work</span>
+
       <h2 class="section-title">
         From Vision <span class="gold">To Reality</span>
       </h2>
     </div>
 
     <div class="process-grid">
+
       <div class="process-item">
         <span>01</span>
         <h3>Discover</h3>
-        <p>We understand your ideas, needs and project vision.</p>
+        <p>
+          We understand your ideas, needs and project vision.
+        </p>
       </div>
 
       <div class="process-item">
         <span>02</span>
         <h3>Design</h3>
-        <p>We develop concepts and thoughtful design solutions.</p>
+        <p>
+          We develop concepts and thoughtful design solutions.
+        </p>
       </div>
 
       <div class="process-item">
         <span>03</span>
         <h3>Plan</h3>
-        <p>We work through the planning and project requirements.</p>
+        <p>
+          We work through the planning and project requirements.
+        </p>
       </div>
 
       <div class="process-item">
         <span>04</span>
         <h3>Create</h3>
-        <p>We move towards bringing the vision into reality.</p>
+        <p>
+          We move towards bringing the vision into reality.
+        </p>
       </div>
+
     </div>
 
   </div>
+
 </section>
 
 <!-- CONTACT -->
+
 <section class="contact" id="contact">
+
   <div class="container">
 
     <span class="eyebrow">Let's Connect</span>
+
     <h2 class="section-title">
       Have a Project <span class="gold">In Mind?</span>
     </h2>
@@ -1000,6 +1268,7 @@ footer {
     <div class="contact-grid">
 
       <div>
+
         <p class="contact-intro">
           Have an idea for a new home, commercial space,
           interior or architectural project?
@@ -1020,13 +1289,17 @@ footer {
 
         <div class="contact-detail">
           <small>Phone Number</small>
-          <a href="tel:+918521579125">+91 85215 79125</a>
+          <a href="tel:+918521579125">
+            +91 85215 79125
+          </a>
         </div>
 
         <div class="contact-action">
+
           <a class="btn btn-primary"
              href="https://wa.me/918521579125"
-             target="_blank" rel="noopener">
+             target="_blank"
+             rel="noopener">
             WhatsApp Us
           </a>
 
@@ -1034,12 +1307,17 @@ footer {
              href="mailto:craftinfradesign.rmc@gmail.com">
             Send Email
           </a>
+
         </div>
+
       </div>
 
       <div class="contact-panel">
+
         <span class="eyebrow">Craft Infra & Design</span>
+
         <h3>Let's build something meaningful.</h3>
+
         <p>
           Every great project starts with a conversation.
           Tell us what you have in mind and take the first
@@ -1048,27 +1326,40 @@ footer {
 
         <a class="btn btn-primary"
            href="https://wa.me/918521579125?text=Hello%20Craft%20Infra%20%26%20Design%2C%20I%20would%20like%20to%20discuss%20a%20project."
-           target="_blank" rel="noopener">
+           target="_blank"
+           rel="noopener">
           Discuss Your Project
         </a>
+
       </div>
 
     </div>
+
   </div>
+
 </section>
 
 </main>
 
 <!-- FOOTER -->
+
 <footer>
+
   <div class="container footer-inner">
-    <div class="footer-brand">Craft Infra & Design</div>
+
+    <div class="footer-brand">
+      Craft Infra & Design
+    </div>
+
     <p>TURNING VISIONS INTO REALITY</p>
+
     <p>
       © <span id="year"></span> Craft Infra & Design.
       All Rights Reserved.
     </p>
+
   </div>
+
 </footer>
 
 <script>
