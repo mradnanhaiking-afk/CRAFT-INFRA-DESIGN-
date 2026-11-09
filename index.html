@@ -1,1326 +1,1080 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#100d0b">
-
-  <title>Craft Infra & Design | Turning Visions Into Reality</title>
-  <meta name="description" content="Craft Infra & Design offers building construction, architectural design, interior design, exterior design, 3D elevation and renovation services.">
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
-  <style>
-    :root {
-      --bg: #100d0b;
-      --bg-light: #19130f;
-      --gold: #c69b60;
-      --gold-light: #e6c18b;
-      --white: #f5f0e9;
-      --muted: #aaa096;
-      --line: rgba(198,155,96,.22);
-    }
-
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      background: var(--bg);
-      color: var(--white);
-      font-family: 'DM Sans', sans-serif;
-      overflow-x: hidden;
-    }
-
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    button {
-      font: inherit;
-    }
-
-    .container {
-      width: min(1160px, 90%);
-      margin: auto;
-    }
-
-    .gold {
-      color: var(--gold-light);
-    }
-
-    .eyebrow {
-      color: var(--gold);
-      font-size: 11px;
-      letter-spacing: 4px;
-      text-transform: uppercase;
-      font-weight: 600;
-    }
-
-    .section-title {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(42px, 6vw, 68px);
-      font-weight: 500;
-      line-height: 1;
-      margin: 16px 0 22px;
-    }
-
-    .section-copy {
-      color: var(--muted);
-      line-height: 1.9;
-      font-size: 14px;
-      max-width: 600px;
-    }
-
-    /* NAVIGATION */
-
-    header {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      z-index: 20;
-      border-bottom: 1px solid rgba(255,255,255,.1);
-    }
-
-    .navbar {
-      min-height: 88px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 25px;
-    }
-
-    .logo {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-
-    .logo-mark {
-      width: 42px;
-      height: 42px;
-      border: 1px solid var(--gold);
-      color: var(--gold-light);
-      display: grid;
-      place-items: center;
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 25px;
-    }
-
-    .logo-name {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 20px;
-      letter-spacing: 1px;
-    }
-
-    .logo-small {
-      display: block;
-      color: var(--gold);
-      font-size: 8px;
-      letter-spacing: 3px;
-      margin-top: 3px;
-    }
-
-    .nav-links {
-      display: flex;
-      align-items: center;
-      gap: 30px;
-      list-style: none;
-    }
-
-    .nav-links a {
-      font-size: 11px;
-      color: #ddd3c7;
-      letter-spacing: 1.5px;
-      text-transform: uppercase;
-      transition: .3s;
-    }
-
-    .nav-links a:hover {
-      color: var(--gold-light);
-    }
-
-    .nav-contact {
-      border: 1px solid var(--gold);
-      padding: 13px 19px;
-      color: var(--gold-light) !important;
-    }
-
-    /* HERO */
-
-    .hero {
-      min-height: 780px;
-      height: 100svh;
-      max-height: 1000px;
-      position: relative;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      overflow: hidden;
-      isolation: isolate;
-      background:
-        radial-gradient(ellipse at 50% 55%, #39271a 0%, #17100c 48%, #0c0a09 100%);
-    }
-
-    .hero-photo {
-      position: absolute;
-      z-index: -4;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: center 48%;
-      opacity: .58;
-      filter: brightness(.56) contrast(1.12) saturate(.72);
-      -webkit-mask-image:
-        radial-gradient(ellipse at center, black 35%, rgba(0,0,0,.8) 65%, transparent 100%);
-      mask-image:
-        radial-gradient(ellipse at center, black 35%, rgba(0,0,0,.8) 65%, transparent 100%);
-    }
-
-    .hero-overlay {
-      position: absolute;
-      z-index: -3;
-      inset: 0;
-      background:
-        linear-gradient(180deg, rgba(9,8,7,.65), transparent 25%, rgba(15,10,7,.35) 60%, #100d0b 100%),
-        linear-gradient(90deg, rgba(10,8,7,.72), transparent 50%, rgba(10,8,7,.72));
-    }
-
-    .hero-watermark {
-      position: absolute;
-      z-index: -2;
-      top: 38%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      width: 100%;
-      text-align: center;
-      white-space: nowrap;
-      font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(65px, 13vw, 190px);
-      font-weight: 700;
-      letter-spacing: 8px;
-      color: rgba(238,216,186,.075);
-      pointer-events: none;
-      -webkit-mask-image: linear-gradient(to bottom, black, transparent 90%);
-      mask-image: linear-gradient(to bottom, black, transparent 90%);
-    }
-
-    /* SMOKE EFFECTS */
-
-    .smoke {
-      position: absolute;
-      z-index: -1;
-      bottom: -170px;
-      width: 480px;
-      height: 540px;
-      border-radius: 50%;
-      background: radial-gradient(ellipse, rgba(170,130,91,.17), rgba(120,83,58,.08) 42%, transparent 72%);
-      filter: blur(48px);
-      pointer-events: none;
-      animation: smokeMove 13s ease-in-out infinite alternate;
-    }
-
-    .smoke.one {
-      left: -150px;
-    }
-
-    .smoke.two {
-      right: -130px;
-      bottom: -200px;
-      animation-delay: -5s;
-      animation-duration: 16s;
-    }
-
-    .smoke.three {
-      left: 30%;
-      bottom: -270px;
-      opacity: .7;
-      animation-delay: -8s;
-      animation-duration: 18s;
-    }
-
-    .smoke.four {
-      left: 5%;
-      bottom: 80px;
-      opacity: .45;
-      animation-delay: -3s;
-      animation-duration: 20s;
-    }
-
-    .smoke.five {
-      right: 8%;
-      bottom: 120px;
-      opacity: .4;
-      animation-delay: -7s;
-      animation-duration: 17s;
-    }
-
-    @keyframes smokeMove {
-      0% {
-        transform: translate(0, 0) scale(.8) rotate(0deg);
-        opacity: .35;
-      }
-      50% {
-        transform: translate(70px, -100px) scale(1.25) rotate(20deg);
-        opacity: .8;
-      }
-      100% {
-        transform: translate(-50px, -180px) scale(1.5) rotate(-15deg);
-        opacity: .25;
-      }
-    }
-
-    .hero-content {
-      width: min(1000px, 90%);
-      text-align: center;
-      padding-top: 85px;
-      position: relative;
-      z-index: 2;
-    }
-
-    .hero-tag {
-      color: var(--gold-light);
-      font-size: 11px;
-      letter-spacing: 6px;
-      text-transform: uppercase;
-      margin-bottom: 30px;
-      animation: fadeUp 1s both;
-    }
-
-    .hero-title {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(65px, 12vw, 145px);
-      line-height: .78;
-      font-weight: 600;
-      letter-spacing: 4px;
-      text-transform: uppercase;
-      text-shadow: 0 8px 35px rgba(0,0,0,.65);
-      animation: fadeUp 1.2s .1s both;
-    }
-
-    .hero-title span {
-      display: block;
-    }
-
-    .hero-title .second {
-      color: var(--gold-light);
-    }
-
-    .hero-subtitle {
-      margin-top: 35px;
-      color: #e2d5c6;
-      font-size: 12px;
-      letter-spacing: 5px;
-      text-transform: uppercase;
-      animation: fadeUp 1.3s .2s both;
-    }
-
-    .hero-description {
-      max-width: 530px;
-      margin: 22px auto 32px;
-      color: #c5b9ac;
-      font-size: 13px;
-      line-height: 1.9;
-      animation: fadeUp 1.4s .3s both;
-    }
-
-    .hero-buttons {
-      display: flex;
-      justify-content: center;
-      gap: 14px;
-      flex-wrap: wrap;
-      animation: fadeUp 1.5s .4s both;
-    }
-
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      padding: 15px 25px;
-      font-size: 10px;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      transition: .3s;
-      border: 1px solid var(--gold);
-    }
-
-    .btn-primary {
-      background: var(--gold);
-      color: #17100a;
-    }
-
-    .btn-primary:hover {
-      background: var(--gold-light);
-      transform: translateY(-3px);
-    }
-
-    .btn-outline {
-      color: var(--gold-light);
-      background: rgba(0,0,0,.18);
-    }
-
-    .btn-outline:hover {
-      background: var(--gold);
-      color: #17100a;
-    }
-
-    .scroll-note {
-      position: absolute;
-      bottom: 28px;
-      left: 50%;
-      transform: translateX(-50%);
-      color: #b4a18a;
-      font-size: 9px;
-      letter-spacing: 4px;
-      text-transform: uppercase;
-    }
-
-    .scroll-note::after {
-      content: "";
-      display: block;
-      height: 35px;
-      width: 1px;
-      margin: 12px auto 0;
-      background: linear-gradient(var(--gold), transparent);
-    }
-
-    @keyframes fadeUp {
-      from {
-        opacity: 0;
-        transform: translateY(25px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    /* ABOUT */
-
-    section {
-      position: relative;
-    }
-
-    .about {
-      padding: 120px 0;
-      background: linear-gradient(180deg, #100d0b, #17110d);
-    }
-
-    .about-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 75px;
-      align-items: center;
-    }
-
-    .about-visual {
-      min-height: 430px;
-      position: relative;
-      border: 1px solid var(--line);
-      padding: 18px;
-    }
-
-    .about-visual-inner {
-      height: 100%;
-      min-height: 390px;
-      background:
-        linear-gradient(180deg, rgba(10,8,6,.15), rgba(10,8,6,.8)),
-        url("WhatsApp%20Image%202026-11-09%20at%204.53.08%20PM.jpeg") center/cover;
-      display: flex;
-      align-items: flex-end;
-      padding: 30px;
-    }
-
-    .visual-caption {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 34px;
-      color: #fff;
-    }
-
-    .about-content {
-      padding: 20px 0;
-    }
-
-    .about-content p {
-      color: var(--muted);
-      font-size: 14px;
-      line-height: 2;
-      margin-bottom: 18px;
-    }
-
-    .about-signature {
-      margin-top: 30px;
-      padding-top: 20px;
-      border-top: 1px solid var(--line);
-      color: var(--gold-light);
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 23px;
-    }
-
-    /* SERVICES */
-
-    .services {
-      padding: 115px 0;
-      background: #0d0b09;
-    }
-
-    .section-heading {
-      text-align: center;
-      margin-bottom: 55px;
-    }
-
-    .services-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 18px;
-    }
-
-    .service-card {
-      min-height: 245px;
-      padding: 34px 28px;
-      background: linear-gradient(145deg, #1b1510, #110e0b);
-      border: 1px solid rgba(198,155,96,.15);
-      transition: .35s;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .service-card:hover {
-      transform: translateY(-7px);
-      border-color: var(--gold);
-      background: linear-gradient(145deg, #281d13, #120e0a);
-    }
-
-    .service-number {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 38px;
-      color: rgba(198,155,96,.55);
-      margin-bottom: 20px;
-    }
-
-    .service-card h3 {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 26px;
-      font-weight: 500;
-      margin-bottom: 13px;
-    }
-
-    .service-card p {
-      color: var(--muted);
-      font-size: 12px;
-      line-height: 1.8;
-    }
-
-    /* FEATURE STRIP */
-
-    .statement {
-      padding: 85px 20px;
-      text-align: center;
-      background:
-        linear-gradient(rgba(12,9,7,.85), rgba(12,9,7,.9)),
-        radial-gradient(ellipse at center, #59402a, #100d0b 75%);
-      border-top: 1px solid var(--line);
-      border-bottom: 1px solid var(--line);
-    }
-
-    .statement h2 {
-      max-width: 850px;
-      margin: 18px auto;
-      font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(35px, 6vw, 65px);
-      font-weight: 500;
-      line-height: 1.1;
-    }
-
-    .statement p {
-      color: var(--muted);
-      font-size: 13px;
-      letter-spacing: 1px;
-    }
-
-    /* WORK */
-
-    .work {
-      padding: 115px 0;
-      background: #15100c;
-    }
-
-    .work-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
-      margin-top: 48px;
-    }
-
-    .work-card {
-      min-height: 300px;
-      border: 1px solid var(--line);
-      position: relative;
-      overflow: hidden;
-      background: linear-gradient(145deg, #342419, #100d0b);
-    }
-
-    .work-card:nth-child(2) {
-      background: linear-gradient(145deg, #473426, #17100c);
-    }
-
-    .work-card:nth-child(3) {
-      background: linear-gradient(145deg, #29241f, #100d0b);
-    }
-
-    .work-card::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: radial-gradient(circle at 50% 35%, rgba(198,155,96,.25), transparent 60%);
-    }
-
-    .work-content {
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 100%;
-      padding: 25px;
-      background: linear-gradient(transparent, rgba(0,0,0,.85));
-    }
-
-    .work-content span {
-      color: var(--gold-light);
-      font-size: 9px;
-      letter-spacing: 3px;
-      text-transform: uppercase;
-    }
-
-    .work-content h3 {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 28px;
-      margin-top: 8px;
-      font-weight: 500;
-    }
-
-    .work-note {
-      color: var(--muted);
-      font-size: 11px;
-      margin-top: 22px;
-      text-align: center;
-    }
-
-    /* PROCESS */
-
-    .process {
-      padding: 110px 0;
-      background: #0e0c0a;
-    }
-
-    .process-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 25px;
-      margin-top: 55px;
-    }
-
-    .process-item {
-      border-top: 1px solid var(--gold);
-      padding-top: 22px;
-    }
-
-    .process-item span {
-      color: var(--gold);
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 32px;
-    }
-
-    .process-item h3 {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 24px;
-      margin: 15px 0 10px;
-      font-weight: 500;
-    }
-
-    .process-item p {
-      color: var(--muted);
-      font-size: 12px;
-      line-height: 1.8;
-    }
-
-    /* CONTACT */
-
-    .contact {
-      padding: 115px 0;
-      background:
-        radial-gradient(ellipse at center top, #382719, #100d0b 70%);
-    }
-
-    .contact-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 70px;
-      margin-top: 45px;
-    }
-
-    .contact-intro {
-      color: var(--muted);
-      font-size: 14px;
-      line-height: 1.9;
-      max-width: 450px;
-    }
-
-    .contact-detail {
-      padding: 18px 0;
-      border-bottom: 1px solid var(--line);
-    }
-
-    .contact-detail small {
-      color: var(--gold);
-      letter-spacing: 2px;
-      font-size: 9px;
-      text-transform: uppercase;
-    }
-
-    .contact-detail p,
-    .contact-detail a {
-      display: block;
-      margin-top: 8px;
-      color: var(--white);
-      font-size: 14px;
-      overflow-wrap: anywhere;
-    }
-
-    .contact-action {
-      margin-top: 28px;
-      display: flex;
-      gap: 12px;
-      flex-wrap: wrap;
-    }
-
-    .contact-panel {
-      border: 1px solid var(--line);
-      background: rgba(12,9,7,.4);
-      padding: 35px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-    }
-
-    .contact-panel h3 {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 36px;
-      font-weight: 500;
-      margin-bottom: 15px;
-    }
-
-    .contact-panel p {
-      color: var(--muted);
-      font-size: 13px;
-      line-height: 1.9;
-      margin-bottom: 25px;
-    }
-
-    /* FOOTER */
-
-    footer {
-      background: #090807;
-      padding: 35px 0;
-      border-top: 1px solid var(--line);
-    }
-
-    .footer-inner {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 20px;
-      flex-wrap: wrap;
-    }
-
-    .footer-inner p {
-      color: #8e8277;
-      font-size: 10px;
-      letter-spacing: 1px;
-    }
-
-    .footer-brand {
-      font-family: 'Cormorant Garamond', serif;
-      color: var(--gold-light);
-      font-size: 20px;
-    }
-
-    /* RESPONSIVE */
-
-    @media (max-width: 850px) {
-      .nav-links {
-        gap: 14px;
-      }
-
-      .nav-links a {
-        font-size: 9px;
-      }
-
-      .about-grid,
-      .contact-grid {
-        grid-template-columns: 1fr;
-        gap: 40px;
-      }
-
-      .services-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      .work-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      .process-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-    }
-
-    @media (max-width: 600px) {
-      .navbar {
-        min-height: 75px;
-        flex-wrap: wrap;
-        padding: 12px 0;
-      }
-
-      .logo-name {
-        font-size: 17px;
-      }
-
-      .nav-links {
-        width: 100%;
-        justify-content: space-between;
-        gap: 8px;
-        padding-bottom: 8px;
-      }
-
-      .nav-links a {
-        font-size: 8px;
-        letter-spacing: .7px;
-      }
-
-      .nav-contact {
-        padding: 7px 9px;
-      }
-
-      .hero {
-        min-height: 720px;
-        height: 100svh;
-      }
-
-      .hero-photo {
-        object-position: center;
-        opacity: .45;
-      }
-
-      .hero-watermark {
-        font-size: 15vw;
-        letter-spacing: 2px;
-      }
-
-      .hero-content {
-        padding-top: 100px;
-      }
-
-      .hero-tag {
-        font-size: 9px;
-        letter-spacing: 3px;
-      }
-
-      .hero-title {
-        font-size: clamp(57px, 16vw, 90px);
-        letter-spacing: 1px;
-      }
-
-      .hero-subtitle {
-        font-size: 9px;
-        letter-spacing: 3px;
-      }
-
-      .hero-description {
-        font-size: 12px;
-      }
-
-      .btn {
-        padding: 13px 17px;
-        font-size: 9px;
-      }
-
-      .about,
-      .services,
-      .work,
-      .process,
-      .contact {
-        padding: 80px 0;
-      }
-
-      .about-visual {
-        min-height: 320px;
-      }
-
-      .about-visual-inner {
-        min-height: 280px;
-      }
-
-      .services-grid,
-      .work-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .service-card {
-        min-height: 210px;
-      }
-
-      .work-card {
-        min-height: 260px;
-      }
-
-      .process-grid {
-        grid-template-columns: 1fr 1fr;
-        gap: 30px 18px;
-      }
-
-      .contact-panel {
-        padding: 25px;
-      }
-
-      .footer-inner {
-        justify-content: center;
-        text-align: center;
-      }
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      *, *::before, *::after {
-        animation-duration: .01ms !important;
-        animation-iteration-count: 1 !important;
-        scroll-behavior: auto !important;
-      }
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#100d0b">
+<title>Craft Infra & Design | Turning Visions Into Reality</title>
+<meta name="description" content="Craft Infra & Design - Architecture, construction, interior and exterior design.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --bg:#100d0b;
+  --gold:#c69b60;
+  --gold-light:#e6c18b;
+  --white:#f5f0e9;
+  --muted:#aaa096;
+  --line:rgba(198,155,96,.22);
+}
+
+* { margin:0; padding:0; box-sizing:border-box; }
+
+html { scroll-behavior:smooth; }
+
+body {
+  background:var(--bg);
+  color:var(--white);
+  font-family:'DM Sans',sans-serif;
+  overflow-x:hidden;
+}
+
+a { color:inherit; text-decoration:none; }
+
+.container { width:min(1160px,90%); margin:auto; }
+
+.gold { color:var(--gold-light); }
+
+.eyebrow {
+  color:var(--gold);
+  font-size:11px;
+  letter-spacing:4px;
+  text-transform:uppercase;
+  font-weight:600;
+}
+
+.section-title {
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(42px,6vw,68px);
+  font-weight:500;
+  line-height:1;
+  margin:16px 0 22px;
+}
+
+.section-copy {
+  color:var(--muted);
+  line-height:1.9;
+  font-size:14px;
+  max-width:600px;
+}
+
+/* NAVIGATION */
+
+header {
+  position:absolute;
+  top:0;
+  left:0;
+  width:100%;
+  z-index:30;
+  border-bottom:1px solid rgba(255,255,255,.1);
+}
+
+.navbar {
+  min-height:88px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:25px;
+}
+
+.logo { display:flex; align-items:center; gap:12px; }
+
+.logo-mark {
+  width:42px;
+  height:42px;
+  border:1px solid var(--gold);
+  color:var(--gold-light);
+  display:grid;
+  place-items:center;
+  font-family:'Cormorant Garamond',serif;
+  font-size:25px;
+}
+
+.logo-name {
+  font-family:'Cormorant Garamond',serif;
+  font-size:20px;
+  letter-spacing:1px;
+}
+
+.logo-small {
+  display:block;
+  color:var(--gold);
+  font-size:8px;
+  letter-spacing:3px;
+  margin-top:3px;
+}
+
+.nav-links {
+  display:flex;
+  align-items:center;
+  gap:30px;
+  list-style:none;
+}
+
+.nav-links a {
+  font-size:11px;
+  color:#ddd3c7;
+  letter-spacing:1.5px;
+  text-transform:uppercase;
+  transition:.3s;
+}
+
+.nav-links a:hover { color:var(--gold-light); }
+
+.nav-contact {
+  border:1px solid var(--gold);
+  padding:13px 19px;
+  color:var(--gold-light)!important;
+}
+
+/* HERO BACKGROUND */
+
+.hero {
+  min-height:780px;
+  height:100svh;
+  max-height:1000px;
+  position:relative;
+  display:flex;
+  align-items:center;
+  overflow:hidden;
+  isolation:isolate;
+  background:
+    radial-gradient(ellipse at 65% 55%,#39271a 0%,#17100c 48%,#0c0a09 100%);
+}
+
+.hero-background {
+  position:absolute;
+  z-index:-5;
+  inset:0;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  object-position:center 48%;
+  opacity:.50;
+  filter:brightness(.48) contrast(1.12) saturate(.7);
+  -webkit-mask-image:radial-gradient(ellipse at center,black 30%,rgba(0,0,0,.8) 65%,transparent 100%);
+  mask-image:radial-gradient(ellipse at center,black 30%,rgba(0,0,0,.8) 65%,transparent 100%);
+}
+
+.hero-overlay {
+  position:absolute;
+  z-index:-4;
+  inset:0;
+  background:
+    linear-gradient(180deg,rgba(9,8,7,.72),transparent 25%,rgba(15,10,7,.25) 65%,#100d0b 100%),
+    linear-gradient(90deg,rgba(10,8,7,.82),rgba(10,8,7,.12) 65%,rgba(10,8,7,.35));
+}
+
+.hero-watermark {
+  position:absolute;
+  z-index:-3;
+  top:38%;
+  left:50%;
+  transform:translate(-50%,-50%);
+  width:100%;
+  text-align:center;
+  white-space:nowrap;
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(65px,13vw,185px);
+  font-weight:700;
+  letter-spacing:8px;
+  color:rgba(238,216,186,.065);
+  pointer-events:none;
+  -webkit-mask-image:linear-gradient(to bottom,black,transparent 90%);
+  mask-image:linear-gradient(to bottom,black,transparent 90%);
+}
+
+/* SMOKE BEHIND THE FOREGROUND PHOTO */
+
+.smoke-layer {
+  position:absolute;
+  z-index:0;
+  pointer-events:none;
+  width:420px;
+  height:600px;
+  border-radius:50%;
+  filter:blur(48px);
+  background:radial-gradient(ellipse,rgba(181,139,96,.25),rgba(112,76,51,.13) 40%,transparent 72%);
+  animation:smokeRise 11s ease-in-out infinite alternate;
+}
+
+.smoke-a { right:5%; bottom:-260px; }
+.smoke-b { right:18%; bottom:-300px; animation-delay:-3s; animation-duration:14s; }
+.smoke-c { right:0; bottom:-150px; animation-delay:-6s; animation-duration:17s; }
+.smoke-d { right:28%; bottom:-260px; animation-delay:-8s; animation-duration:15s; }
+.smoke-e { left:-130px; bottom:-220px; opacity:.55; animation-delay:-5s; }
+
+@keyframes smokeRise {
+  0% {
+    transform:translate(0,0) scale(.75) rotate(0deg);
+    opacity:.15;
+  }
+  50% {
+    transform:translate(-45px,-180px) scale(1.2) rotate(15deg);
+    opacity:.8;
+  }
+  100% {
+    transform:translate(40px,-350px) scale(1.55) rotate(-12deg);
+    opacity:.25;
+  }
+}
+
+/* FOREGROUND PHOTO */
+
+.hero-portrait {
+  position:absolute;
+  z-index:1;
+  right:5%;
+  bottom:0;
+  width:min(45%,600px);
+  height:86%;
+  display:flex;
+  align-items:flex-end;
+  justify-content:center;
+  pointer-events:none;
+}
+
+.hero-portrait img {
+  width:100%;
+  height:100%;
+  object-fit:contain;
+  object-position:center bottom;
+  filter:brightness(.9) contrast(1.06) saturate(.85);
+  -webkit-mask-image:radial-gradient(ellipse at 53% 48%,black 43%,rgba(0,0,0,.92) 62%,transparent 100%);
+  mask-image:radial-gradient(ellipse at 53% 48%,black 43%,rgba(0,0,0,.92) 62%,transparent 100%);
+}
+
+.portrait-glow {
+  position:absolute;
+  z-index:-1;
+  bottom:5%;
+  right:12%;
+  width:75%;
+  height:60%;
+  background:radial-gradient(ellipse,rgba(175,119,65,.22),transparent 70%);
+  filter:blur(55px);
+}
+
+/* HERO CONTENT */
+
+.hero-content {
+  position:relative;
+  z-index:3;
+  width:min(1160px,90%);
+  margin:auto;
+  padding-top:70px;
+  pointer-events:none;
+}
+
+.hero-text {
+  width:58%;
+  max-width:670px;
+}
+
+.hero-tag {
+  color:var(--gold-light);
+  font-size:10px;
+  letter-spacing:5px;
+  text-transform:uppercase;
+  margin-bottom:30px;
+  animation:fadeUp 1s both;
+}
+
+.hero-title {
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(65px,10vw,125px);
+  line-height:.78;
+  font-weight:600;
+  letter-spacing:2px;
+  text-transform:uppercase;
+  text-shadow:0 8px 35px rgba(0,0,0,.65);
+  animation:fadeUp 1.2s .1s both;
+}
+
+.hero-title span { display:block; }
+.hero-title .second { color:var(--gold-light); }
+
+.hero-subtitle {
+  margin-top:32px;
+  color:#e2d5c6;
+  font-size:11px;
+  letter-spacing:4px;
+  text-transform:uppercase;
+  animation:fadeUp 1.3s .2s both;
+}
+
+.hero-description {
+  max-width:450px;
+  margin:20px 0 28px;
+  color:#c5b9ac;
+  font-size:13px;
+  line-height:1.9;
+  animation:fadeUp 1.4s .3s both;
+}
+
+.hero-buttons {
+  display:flex;
+  gap:13px;
+  flex-wrap:wrap;
+  animation:fadeUp 1.5s .4s both;
+  pointer-events:auto;
+}
+
+.btn {
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  padding:15px 24px;
+  font-size:10px;
+  letter-spacing:2px;
+  text-transform:uppercase;
+  transition:.3s;
+  border:1px solid var(--gold);
+}
+
+.btn-primary { background:var(--gold); color:#17100a; }
+.btn-primary:hover { background:var(--gold-light); transform:translateY(-3px); }
+.btn-outline { color:var(--gold-light); background:rgba(0,0,0,.25); }
+.btn-outline:hover { background:var(--gold); color:#17100a; }
+
+.scroll-note {
+  position:absolute;
+  z-index:4;
+  bottom:25px;
+  left:50%;
+  transform:translateX(-50%);
+  color:#b4a18a;
+  font-size:9px;
+  letter-spacing:4px;
+  text-transform:uppercase;
+}
+
+.scroll-note::after {
+  content:"";
+  display:block;
+  height:30px;
+  width:1px;
+  margin:10px auto 0;
+  background:linear-gradient(var(--gold),transparent);
+}
+
+@keyframes fadeUp {
+  from { opacity:0; transform:translateY(25px); }
+  to { opacity:1; transform:translateY(0); }
+}
+
+/* ABOUT */
+
+.about {
+  padding:120px 0;
+  background:linear-gradient(180deg,#100d0b,#17110d);
+}
+
+.about-grid {
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:75px;
+  align-items:center;
+}
+
+.about-visual {
+  min-height:430px;
+  border:1px solid var(--line);
+  padding:18px;
+}
+
+.about-visual-inner {
+  min-height:390px;
+  height:100%;
+  background:
+    linear-gradient(180deg,rgba(10,8,6,.15),rgba(10,8,6,.8)),
+    url("./WhatsApp%20Image%202026-11-09%20at%204.53.08%20PM.jpeg") center/cover;
+  display:flex;
+  align-items:flex-end;
+  padding:30px;
+}
+
+.visual-caption {
+  font-family:'Cormorant Garamond',serif;
+  font-size:34px;
+}
+
+.about-content p {
+  color:var(--muted);
+  font-size:14px;
+  line-height:2;
+  margin-bottom:18px;
+}
+
+.about-signature {
+  margin-top:30px;
+  padding-top:20px;
+  border-top:1px solid var(--line);
+  color:var(--gold-light);
+  font-family:'Cormorant Garamond',serif;
+  font-size:23px;
+}
+
+/* SERVICES */
+
+.services { padding:115px 0; background:#0d0b09; }
+
+.section-heading { text-align:center; margin-bottom:55px; }
+
+.services-grid {
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:18px;
+}
+
+.service-card {
+  min-height:245px;
+  padding:34px 28px;
+  background:linear-gradient(145deg,#1b1510,#110e0b);
+  border:1px solid rgba(198,155,96,.15);
+  transition:.35s;
+}
+
+.service-card:hover {
+  transform:translateY(-7px);
+  border-color:var(--gold);
+  background:linear-gradient(145deg,#281d13,#120e0a);
+}
+
+.service-number {
+  font-family:'Cormorant Garamond',serif;
+  font-size:38px;
+  color:rgba(198,155,96,.55);
+  margin-bottom:20px;
+}
+
+.service-card h3 {
+  font-family:'Cormorant Garamond',serif;
+  font-size:26px;
+  font-weight:500;
+  margin-bottom:13px;
+}
+
+.service-card p {
+  color:var(--muted);
+  font-size:12px;
+  line-height:1.8;
+}
+
+/* STATEMENT */
+
+.statement {
+  padding:85px 20px;
+  text-align:center;
+  background:radial-gradient(ellipse at center,#392719,#100d0b 75%);
+  border-top:1px solid var(--line);
+  border-bottom:1px solid var(--line);
+}
+
+.statement h2 {
+  max-width:850px;
+  margin:18px auto;
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(35px,6vw,65px);
+  font-weight:500;
+  line-height:1.1;
+}
+
+.statement p { color:var(--muted); font-size:13px; letter-spacing:1px; }
+
+/* WORK */
+
+.work { padding:115px 0; background:#15100c; }
+
+.work-grid {
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:20px;
+  margin-top:48px;
+}
+
+.work-card {
+  min-height:300px;
+  border:1px solid var(--line);
+  position:relative;
+  overflow:hidden;
+  background:linear-gradient(145deg,#342419,#100d0b);
+}
+
+.work-card:nth-child(2) { background:linear-gradient(145deg,#473426,#17100c); }
+.work-card:nth-child(3) { background:linear-gradient(145deg,#29241f,#100d0b); }
+
+.work-card::before {
+  content:"";
+  position:absolute;
+  inset:0;
+  background:radial-gradient(circle at 50% 35%,rgba(198,155,96,.25),transparent 60%);
+}
+
+.work-content {
+  position:absolute;
+  bottom:0;
+  left:0;
+  width:100%;
+  padding:25px;
+  background:linear-gradient(transparent,rgba(0,0,0,.85));
+}
+
+.work-content span {
+  color:var(--gold-light);
+  font-size:9px;
+  letter-spacing:3px;
+  text-transform:uppercase;
+}
+
+.work-content h3 {
+  font-family:'Cormorant Garamond',serif;
+  font-size:28px;
+  margin-top:8px;
+  font-weight:500;
+}
+
+.work-note { color:var(--muted); font-size:11px; margin-top:22px; text-align:center; }
+
+/* PROCESS */
+
+.process { padding:110px 0; background:#0e0c0a; }
+
+.process-grid {
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:25px;
+  margin-top:55px;
+}
+
+.process-item { border-top:1px solid var(--gold); padding-top:22px; }
+.process-item span { color:var(--gold); font-family:'Cormorant Garamond',serif; font-size:32px; }
+.process-item h3 { font-family:'Cormorant Garamond',serif; font-size:24px; margin:15px 0 10px; font-weight:500; }
+.process-item p { color:var(--muted); font-size:12px; line-height:1.8; }
+
+/* CONTACT */
+
+.contact {
+  padding:115px 0;
+  background:radial-gradient(ellipse at center top,#382719,#100d0b 70%);
+}
+
+.contact-grid {
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:70px;
+  margin-top:45px;
+}
+
+.contact-intro {
+  color:var(--muted);
+  font-size:14px;
+  line-height:1.9;
+  max-width:450px;
+}
+
+.contact-detail { padding:18px 0; border-bottom:1px solid var(--line); }
+.contact-detail small { color:var(--gold); letter-spacing:2px; font-size:9px; text-transform:uppercase; }
+.contact-detail p,.contact-detail a {
+  display:block;
+  margin-top:8px;
+  color:var(--white);
+  font-size:14px;
+  overflow-wrap:anywhere;
+}
+
+.contact-action { margin-top:28px; display:flex; gap:12px; flex-wrap:wrap; }
+
+.contact-panel {
+  border:1px solid var(--line);
+  background:rgba(12,9,7,.4);
+  padding:35px;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+}
+
+.contact-panel h3 {
+  font-family:'Cormorant Garamond',serif;
+  font-size:36px;
+  font-weight:500;
+  margin-bottom:15px;
+}
+
+.contact-panel p { color:var(--muted); font-size:13px; line-height:1.9; margin-bottom:25px; }
+
+/* FOOTER */
+
+footer {
+  background:#090807;
+  padding:35px 0;
+  border-top:1px solid var(--line);
+}
+
+.footer-inner {
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:20px;
+  flex-wrap:wrap;
+}
+
+.footer-inner p { color:#8e8277; font-size:10px; letter-spacing:1px; }
+.footer-brand { font-family:'Cormorant Garamond',serif; color:var(--gold-light); font-size:20px; }
+
+/* RESPONSIVE */
+
+@media(max-width:850px) {
+  .nav-links { gap:14px; }
+  .nav-links a { font-size:9px; }
+  .about-grid,.contact-grid { grid-template-columns:1fr; gap:40px; }
+  .services-grid { grid-template-columns:repeat(2,1fr); }
+  .work-grid { grid-template-columns:repeat(2,1fr); }
+  .process-grid { grid-template-columns:repeat(2,1fr); }
+}
+
+@media(max-width:600px) {
+  .navbar { min-height:75px; flex-wrap:wrap; padding:12px 0; }
+  .logo-name { font-size:17px; }
+  .nav-links { width:100%; justify-content:space-between; gap:8px; padding-bottom:8px; }
+  .nav-links a { font-size:8px; letter-spacing:.7px; }
+  .nav-contact { padding:7px 9px; }
+
+  .hero { min-height:760px; height:100svh; }
+  .hero-background { object-position:center; opacity:.43; }
+  .hero-watermark { font-size:15vw; letter-spacing:2px; top:34%; }
+
+  .hero-content {
+    width:90%;
+    padding-top:50px;
+    margin-top:0;
+    display:flex;
+    align-items:center;
+  }
+
+  .hero-text {
+    width:100%;
+    max-width:100%;
+    position:relative;
+    z-index:4;
+  }
+
+  .hero-title {
+    font-size:clamp(55px,14vw,82px);
+    letter-spacing:1px;
+  }
+
+  .hero-tag { font-size:9px; letter-spacing:3px; margin-bottom:22px; }
+  .hero-subtitle { font-size:9px; letter-spacing:2px; margin-top:25px; }
+  .hero-description { font-size:11px; max-width:310px; margin:14px 0 20px; }
+
+  .hero-portrait {
+    right:-10%;
+    bottom:0;
+    width:74%;
+    height:57%;
+    opacity:.72;
+  }
+
+  .hero-portrait img {
+    object-position:center bottom;
+    -webkit-mask-image:linear-gradient(to bottom,transparent 0%,black 15%,black 75%,transparent 100%);
+    mask-image:linear-gradient(to bottom,transparent 0%,black 15%,black 75%,transparent 100%);
+  }
+
+  .smoke-layer { width:270px; height:420px; }
+  .smoke-a { right:-10%; }
+  .smoke-b { right:20%; }
+  .smoke-c { right:-15%; }
+
+  .scroll-note { bottom:15px; }
+
+  .btn { padding:13px 16px; font-size:9px; }
+  .about,.services,.work,.process,.contact { padding:80px 0; }
+  .about-visual { min-height:320px; }
+  .about-visual-inner { min-height:280px; }
+  .services-grid,.work-grid { grid-template-columns:1fr; }
+  .service-card { min-height:210px; }
+  .work-card { min-height:260px; }
+  .process-grid { grid-template-columns:1fr 1fr; gap:30px 18px; }
+  .contact-panel { padding:25px; }
+  .footer-inner { justify-content:center; text-align:center; }
+}
+
+@media(prefers-reduced-motion:reduce) {
+  *,*::before,*::after {
+    animation-duration:.01ms!important;
+    animation-iteration-count:1!important;
+    scroll-behavior:auto!important;
+  }
+}
+</style>
 </head>
 
 <body>
 
-  <!-- NAVIGATION -->
-  <header>
-    <div class="container navbar">
-
-      <a href="#home" class="logo">
-        <div class="logo-mark">C</div>
-        <div>
-          <div class="logo-name">Craft Infra & Design</div>
-          <span class="logo-small">ARCHITECTURE · CONSTRUCTION</span>
-        </div>
-      </a>
-
-      <ul class="nav-links">
-        <li><a href="#home">Home</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#services">Services</a></li>
-        <li><a href="#work">Our Work</a></li>
-        <li><a href="#contact" class="nav-contact">Contact</a></li>
-      </ul>
-
-    </div>
-  </header>
-
-  <!-- HERO SECTION -->
-  <main>
-
-    <section class="hero" id="home">
-
-      <img
-        class="hero-photo"
-        src="./WhatsApp%20Image%202026-11-09%20at%204.53.08%20PM.jpeg"
-        alt="Craft Infra and Design building"
-      >
-
-      <div class="hero-overlay"></div>
-
-      <div class="hero-watermark">CRAFT INFRA DESIGN</div>
-
-      <div class="smoke one"></div>
-      <div class="smoke two"></div>
-      <div class="smoke three"></div>
-      <div class="smoke four"></div>
-      <div class="smoke five"></div>
-
-      <div class="hero-content">
-
-        <p class="hero-tag">Architecture · Construction · Design</p>
-
-        <h1 class="hero-title">
-          <span>CRAFT</span>
-          <span class="second">INFRA</span>
-          <span>DESIGN</span>
-        </h1>
-
-        <p class="hero-subtitle">Turning Visions Into Reality</p>
-
-        <p class="hero-description">
-          We bring ideas to life through thoughtful architecture,
-          quality construction and inspired design.
-          Building spaces that reflect your vision.
-        </p>
-
-        <div class="hero-buttons">
-          <a href="#services" class="btn btn-primary">Explore Services</a>
-          <a href="#contact" class="btn btn-outline">Start a Project</a>
-        </div>
-
+<header>
+  <div class="container navbar">
+    <a href="#home" class="logo">
+      <div class="logo-mark">C</div>
+      <div>
+        <div class="logo-name">Craft Infra & Design</div>
+        <span class="logo-small">ARCHITECTURE · CONSTRUCTION</span>
       </div>
-
-      <div class="scroll-note">Scroll to explore</div>
-
-    </section>
-
-    <!-- ABOUT SECTION -->
-    <section class="about" id="about">
-      <div class="container about-grid">
-
-        <div class="about-visual">
-          <div class="about-visual-inner">
-            <div class="visual-caption">
-              Design with purpose.<br>
-              Build with passion.
-            </div>
-          </div>
-        </div>
-
-        <div class="about-content">
-
-          <span class="eyebrow">Who We Are</span>
-
-          <h2 class="section-title">
-            Creating Spaces.<br>
-            <span class="gold">Building Dreams.</span>
-          </h2>
-
-          <p>
-            Craft Infra & Design is focused on transforming ideas
-            into thoughtfully designed and beautifully built spaces.
-            We bring together creativity, planning and construction
-            to shape spaces that feel purposeful and timeless.
-          </p>
-
-          <p>
-            From architectural concepts and 3D elevations to
-            interiors, exteriors and construction, our aim is to
-            understand every vision and work towards bringing it
-            to life.
-          </p>
-
-          <p>
-            Every project begins with an idea. Our approach is to
-            give that idea clarity, character and a design of its own.
-          </p>
-
-          <div class="about-signature">
-            Craft Infra & Design
-          </div>
-
-        </div>
-
-      </div>
-    </section>
-
-    <!-- SERVICES SECTION -->
-    <section class="services" id="services">
-      <div class="container">
-
-        <div class="section-heading">
-          <span class="eyebrow">What We Do</span>
-          <h2 class="section-title">
-            Our <span class="gold">Expertise</span>
-          </h2>
-          <p class="section-copy" style="margin:auto">
-            Thoughtful planning, creative design and construction
-            solutions for spaces made around your vision.
-          </p>
-        </div>
-
-        <div class="services-grid">
-
-          <article class="service-card">
-            <div class="service-number">01</div>
-            <h3>Building Construction</h3>
-            <p>
-              Residential and commercial construction planning
-              focused on functional spaces and thoughtful execution.
-            </p>
-          </article>
-
-          <article class="service-card">
-            <div class="service-number">02</div>
-            <h3>Interior Design</h3>
-            <p>
-              Beautiful and practical interiors with attention
-              to space, materials, details and comfort.
-            </p>
-          </article>
-
-          <article class="service-card">
-            <div class="service-number">03</div>
-            <h3>Exterior Design</h3>
-            <p>
-              Exterior concepts that give buildings a distinctive
-              character and a refined visual identity.
-            </p>
-          </article>
-
-          <article class="service-card">
-            <div class="service-number">04</div>
-            <h3>Architectural Design</h3>
-            <p>
-              Creative architectural concepts and space planning
-              designed around project requirements.
-            </p>
-          </article>
-
-          <article class="service-card">
-            <div class="service-number">05</div>
-            <h3>3D Elevation & Visualization</h3>
-            <p>
-              Visualize your project with 3D concepts and
-              elevation designs before construction begins.
-            </p>
-          </article>
-
-          <article class="service-card">
-            <div class="service-number">06</div>
-            <h3>Renovation & Remodeling</h3>
-            <p>
-              Reimagining existing spaces with fresh design ideas,
-              improved layouts and thoughtful updates.
-            </p>
-          </article>
-
-        </div>
-      </div>
-    </section>
-
-    <!-- BRAND STATEMENT -->
-    <section class="statement">
-      <span class="eyebrow">Our Philosophy</span>
-
-      <h2>
-        Great spaces are not just built.
-        They are <span class="gold">thoughtfully created.</span>
-      </h2>
-
-      <p>CRAFT INFRA & DESIGN — TURNING VISIONS INTO REALITY</p>
-    </section>
-
-    <!-- OUR WORK -->
-    <section class="work" id="work">
-      <div class="container">
-
-        <div class="section-heading">
-          <span class="eyebrow">Ideas Into Reality</span>
-
-          <h2 class="section-title">
-            Our <span class="gold">Work</span>
-          </h2>
-
-          <p class="section-copy" style="margin:auto">
-            A space for our design concepts, architectural
-            visualizations and project photographs.
-          </p>
-        </div>
-
-        <div class="work-grid">
-
-          <article class="work-card">
-            <div class="work-content">
-              <span>01 · Architecture</span>
-              <h3>Building Design</h3>
-            </div>
-          </article>
-
-          <article class="work-card">
-            <div class="work-content">
-              <span>02 · Interiors</span>
-              <h3>Interior Concepts</h3>
-            </div>
-          </article>
-
-          <article class="work-card">
-            <div class="work-content">
-              <span>03 · Visualization</span>
-              <h3>3D Elevation</h3>
-            </div>
-          </article>
-
-        </div>
-
-        <p class="work-note">
-          Project photographs can be added here as your portfolio grows.
-        </p>
-
-      </div>
-    </section>
-
-    <!-- PROCESS -->
-    <section class="process">
-      <div class="container">
-
-        <div class="section-heading">
-          <span class="eyebrow">How We Work</span>
-          <h2 class="section-title">
-            From Vision <span class="gold">To Reality</span>
-          </h2>
-        </div>
-
-        <div class="process-grid">
-
-          <div class="process-item">
-            <span>01</span>
-            <h3>Discover</h3>
-            <p>
-              We understand your ideas, needs and project vision.
-            </p>
-          </div>
-
-          <div class="process-item">
-            <span>02</span>
-            <h3>Design</h3>
-            <p>
-              We develop concepts and thoughtful design solutions.
-            </p>
-          </div>
-
-          <div class="process-item">
-            <span>03</span>
-            <h3>Plan</h3>
-            <p>
-              We work through the planning and project requirements.
-            </p>
-          </div>
-
-          <div class="process-item">
-            <span>04</span>
-            <h3>Create</h3>
-            <p>
-              We move towards bringing the vision into reality.
-            </p>
-          </div>
-
-        </div>
-      </div>
-    </section>
-
-    <!-- CONTACT -->
-    <section class="contact" id="contact">
-      <div class="container">
-
-        <span class="eyebrow">Let's Connect</span>
-
-        <h2 class="section-title">
-          Have a Project <span class="gold">In Mind?</span>
-        </h2>
-
-        <div class="contact-grid">
-
-          <div>
-
-            <p class="contact-intro">
-              Have an idea for a new home, commercial space,
-              interior or architectural project?
-              Get in touch with us and let's discuss your vision.
-            </p>
-
-            <div class="contact-detail">
-              <small>Contact Person</small>
-              <p>Er Saif Ali</p>
-            </div>
-
-            <div class="contact-detail">
-              <small>Email Address</small>
-              <a href="mailto:craftinfradesign.rmc@gmail.com">
-                craftinfradesign.rmc@gmail.com
-              </a>
-            </div>
-
-            <div class="contact-detail">
-              <small>Phone Number</small>
-              <a href="tel:+918521579125">
-                +91 85215 79125
-              </a>
-            </div>
-
-            <div class="contact-action">
-              <a class="btn btn-primary"
-                 href="https://wa.me/918521579125"
-                 target="_blank"
-                 rel="noopener">
-                WhatsApp Us
-              </a>
-
-              <a class="btn btn-outline"
-                 href="mailto:craftinfradesign.rmc@gmail.com">
-                Send Email
-              </a>
-            </div>
-
-          </div>
-
-          <div class="contact-panel">
-
-            <span class="eyebrow">Craft Infra & Design</span>
-
-            <h3>Let's build something meaningful.</h3>
-
-            <p>
-              Every great project starts with a conversation.
-              Tell us what you have in mind and take the first
-              step towards creating your space.
-            </p>
-
-            <a class="btn btn-primary"
-               href="https://wa.me/918521579125?text=Hello%20Craft%20Infra%20%26%20Design%2C%20I%20would%20like%20to%20discuss%20a%20project."
-               target="_blank"
-               rel="noopener">
-              Discuss Your Project
-            </a>
-
-          </div>
-
-        </div>
-      </div>
-    </section>
-
-  </main>
-
-  <!-- FOOTER -->
-  <footer>
-    <div class="container footer-inner">
-
-      <div class="footer-brand">Craft Infra & Design</div>
-
-      <p>TURNING VISIONS INTO REALITY</p>
-
-      <p>
-        © <span id="year"></span> Craft Infra & Design.
-        All Rights Reserved.
+    </a>
+
+    <ul class="nav-links">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#work">Our Work</a></li>
+      <li><a href="#contact" class="nav-contact">Contact</a></li>
+    </ul>
+  </div>
+</header>
+
+<main>
+
+<!-- HERO -->
+<section class="hero" id="home">
+
+  <!-- ORIGINAL BUILDING BACKGROUND -->
+  <img
+    class="hero-background"
+    src="./WhatsApp%20Image%202026-11-09%20at%204.53.08%20PM.jpeg"
+    alt="Craft Infra building background"
+  >
+
+  <div class="hero-overlay"></div>
+  <div class="hero-watermark">CRAFT INFRA DESIGN</div>
+
+  <!-- SMOKE BEHIND NEW PHOTO -->
+  <div class="smoke-layer smoke-a"></div>
+  <div class="smoke-layer smoke-b"></div>
+  <div class="smoke-layer smoke-c"></div>
+  <div class="smoke-layer smoke-d"></div>
+  <div class="smoke-layer smoke-e"></div>
+
+  <!-- NEW PHOTO ON RIGHT SIDE -->
+  <div class="hero-portrait">
+    <div class="portrait-glow"></div>
+    <img
+      src="./WhatsApp%20Image%202026-11-07%20at%208.13.15%20PM.jpeg"
+      alt="Craft Infra Design featured photograph"
+    >
+  </div>
+
+  <!-- HERO TEXT -->
+  <div class="hero-content">
+    <div class="hero-text">
+      <p class="hero-tag">Architecture · Construction · Design</p>
+
+      <h1 class="hero-title">
+        <span>CRAFT</span>
+        <span class="second">INFRA</span>
+        <span>DESIGN</span>
+      </h1>
+
+      <p class="hero-subtitle">Turning Visions Into Reality</p>
+
+      <p class="hero-description">
+        We bring ideas to life through thoughtful architecture,
+        quality construction and inspired design.
+        Building spaces that reflect your vision.
       </p>
 
+      <div class="hero-buttons">
+        <a href="#services" class="btn btn-primary">Explore Services</a>
+        <a href="#contact" class="btn btn-outline">Start a Project</a>
+      </div>
     </div>
-  </footer>
+  </div>
 
-  <script>
-    document.getElementById("year").textContent =
-      new Date().getFullYear();
-  </script>
+  <div class="scroll-note">Scroll to explore</div>
+</section>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+  <div class="container about-grid">
+
+    <div class="about-visual">
+      <div class="about-visual-inner">
+        <div class="visual-caption">
+          Design with purpose.<br>
+          Build with passion.
+        </div>
+      </div>
+    </div>
+
+    <div class="about-content">
+      <span class="eyebrow">Who We Are</span>
+      <h2 class="section-title">
+        Creating Spaces.<br>
+        <span class="gold">Building Dreams.</span>
+      </h2>
+
+      <p>
+        Craft Infra & Design is focused on transforming ideas
+        into thoughtfully designed and beautifully built spaces.
+        We bring together creativity, planning and construction
+        to shape spaces that feel purposeful and timeless.
+      </p>
+
+      <p>
+        From architectural concepts and 3D elevations to
+        interiors, exteriors and construction, our aim is to
+        understand every vision and work towards bringing it
+        to life.
+      </p>
+
+      <p>
+        Every project begins with an idea. Our approach is to
+        give that idea clarity, character and a design of its own.
+      </p>
+
+      <div class="about-signature">Craft Infra & Design</div>
+    </div>
+
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="services" id="services">
+  <div class="container">
+
+    <div class="section-heading">
+      <span class="eyebrow">What We Do</span>
+      <h2 class="section-title">Our <span class="gold">Expertise</span></h2>
+      <p class="section-copy" style="margin:auto">
+        Thoughtful planning, creative design and construction
+        solutions for spaces made around your vision.
+      </p>
+    </div>
+
+    <div class="services-grid">
+
+      <article class="service-card">
+        <div class="service-number">01</div>
+        <h3>Building Construction</h3>
+        <p>Residential and commercial construction planning focused on functional spaces and thoughtful execution.</p>
+      </article>
+
+      <article class="service-card">
+        <div class="service-number">02</div>
+        <h3>Interior Design</h3>
+        <p>Beautiful and practical interiors with attention to space, materials, details and comfort.</p>
+      </article>
+
+      <article class="service-card">
+        <div class="service-number">03</div>
+        <h3>Exterior Design</h3>
+        <p>Exterior concepts that give buildings a distinctive character and a refined visual identity.</p>
+      </article>
+
+      <article class="service-card">
+        <div class="service-number">04</div>
+        <h3>Architectural Design</h3>
+        <p>Creative architectural concepts and space planning designed around project requirements.</p>
+      </article>
+
+      <article class="service-card">
+        <div class="service-number">05</div>
+        <h3>3D Elevation & Visualization</h3>
+        <p>Visualize your project with 3D concepts and elevation designs before construction begins.</p>
+      </article>
+
+      <article class="service-card">
+        <div class="service-number">06</div>
+        <h3>Renovation & Remodeling</h3>
+        <p>Reimagining existing spaces with fresh design ideas, improved layouts and thoughtful updates.</p>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- STATEMENT -->
+<section class="statement">
+  <span class="eyebrow">Our Philosophy</span>
+  <h2>
+    Great spaces are not just built.
+    They are <span class="gold">thoughtfully created.</span>
+  </h2>
+  <p>CRAFT INFRA & DESIGN — TURNING VISIONS INTO REALITY</p>
+</section>
+
+<!-- WORK -->
+<section class="work" id="work">
+  <div class="container">
+
+    <div class="section-heading">
+      <span class="eyebrow">Ideas Into Reality</span>
+      <h2 class="section-title">Our <span class="gold">Work</span></h2>
+      <p class="section-copy" style="margin:auto">
+        A space for our design concepts, architectural visualizations and project photographs.
+      </p>
+    </div>
+
+    <div class="work-grid">
+      <article class="work-card">
+        <div class="work-content">
+          <span>01 · Architecture</span>
+          <h3>Building Design</h3>
+        </div>
+      </article>
+
+      <article class="work-card">
+        <div class="work-content">
+          <span>02 · Interiors</span>
+          <h3>Interior Concepts</h3>
+        </div>
+      </article>
+
+      <article class="work-card">
+        <div class="work-content">
+          <span>03 · Visualization</span>
+          <h3>3D Elevation</h3>
+        </div>
+      </article>
+    </div>
+
+    <p class="work-note">
+      Project photographs can be added here as your portfolio grows.
+    </p>
+
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section class="process">
+  <div class="container">
+
+    <div class="section-heading">
+      <span class="eyebrow">How We Work</span>
+      <h2 class="section-title">
+        From Vision <span class="gold">To Reality</span>
+      </h2>
+    </div>
+
+    <div class="process-grid">
+      <div class="process-item">
+        <span>01</span>
+        <h3>Discover</h3>
+        <p>We understand your ideas, needs and project vision.</p>
+      </div>
+
+      <div class="process-item">
+        <span>02</span>
+        <h3>Design</h3>
+        <p>We develop concepts and thoughtful design solutions.</p>
+      </div>
+
+      <div class="process-item">
+        <span>03</span>
+        <h3>Plan</h3>
+        <p>We work through the planning and project requirements.</p>
+      </div>
+
+      <div class="process-item">
+        <span>04</span>
+        <h3>Create</h3>
+        <p>We move towards bringing the vision into reality.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <div class="container">
+
+    <span class="eyebrow">Let's Connect</span>
+    <h2 class="section-title">
+      Have a Project <span class="gold">In Mind?</span>
+    </h2>
+
+    <div class="contact-grid">
+
+      <div>
+        <p class="contact-intro">
+          Have an idea for a new home, commercial space,
+          interior or architectural project?
+          Get in touch with us and let's discuss your vision.
+        </p>
+
+        <div class="contact-detail">
+          <small>Contact Person</small>
+          <p>Er Saif Ali</p>
+        </div>
+
+        <div class="contact-detail">
+          <small>Email Address</small>
+          <a href="mailto:craftinfradesign.rmc@gmail.com">
+            craftinfradesign.rmc@gmail.com
+          </a>
+        </div>
+
+        <div class="contact-detail">
+          <small>Phone Number</small>
+          <a href="tel:+918521579125">+91 85215 79125</a>
+        </div>
+
+        <div class="contact-action">
+          <a class="btn btn-primary"
+             href="https://wa.me/918521579125"
+             target="_blank" rel="noopener">
+            WhatsApp Us
+          </a>
+
+          <a class="btn btn-outline"
+             href="mailto:craftinfradesign.rmc@gmail.com">
+            Send Email
+          </a>
+        </div>
+      </div>
+
+      <div class="contact-panel">
+        <span class="eyebrow">Craft Infra & Design</span>
+        <h3>Let's build something meaningful.</h3>
+        <p>
+          Every great project starts with a conversation.
+          Tell us what you have in mind and take the first
+          step towards creating your space.
+        </p>
+
+        <a class="btn btn-primary"
+           href="https://wa.me/918521579125?text=Hello%20Craft%20Infra%20%26%20Design%2C%20I%20would%20like%20to%20discuss%20a%20project."
+           target="_blank" rel="noopener">
+          Discuss Your Project
+        </a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container footer-inner">
+    <div class="footer-brand">Craft Infra & Design</div>
+    <p>TURNING VISIONS INTO REALITY</p>
+    <p>
+      © <span id="year"></span> Craft Infra & Design.
+      All Rights Reserved.
+    </p>
+  </div>
+</footer>
+
+<script>
+document.getElementById("year").textContent =
+  new Date().getFullYear();
+</script>
 
 </body>
 </html>
