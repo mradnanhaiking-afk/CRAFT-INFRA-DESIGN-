@@ -4,13 +4,18 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Craft Infra & Design | Building Your Vision</title>
+<title>Craft Infra & Design | Architecture & Construction</title>
 
-<meta name="description" content="Craft Infra & Design offers architectural design, building construction, interior design, exterior design and renovation services.">
+<meta name="description" content="Craft Infra & Design - Architecture, construction, interior design, exterior design and renovation. Turning Visions Into Reality.">
 
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
+
+/* =========================
+   GLOBAL SETTINGS
+========================= */
+
 * {
     margin: 0;
     padding: 0;
@@ -22,27 +27,29 @@ html {
 }
 
 body {
-    background: #101010;
-    color: #f5f1e9;
+    background: #0b0a09;
+    color: #f5f0e8;
     font-family: 'DM Sans', sans-serif;
     line-height: 1.7;
 }
 
 :root {
-    --gold: #d2ad70;
-    --dark: #101010;
-    --light: #f5f1e9;
-    --muted: #aaa;
+    --gold: #c69a58;
+    --gold-light: #e5c18b;
+    --brown: #4b2e1b;
+    --dark: #0b0a09;
+    --light: #f5f0e8;
+    --muted: #aaa39a;
 }
 
 .container {
     width: 90%;
-    max-width: 1150px;
+    max-width: 1200px;
     margin: auto;
 }
 
 section {
-    padding: 95px 0;
+    padding: 100px 0;
 }
 
 .gold {
@@ -50,76 +57,79 @@ section {
 }
 
 .tag {
-    color: var(--gold);
-    font-size: 12px;
-    letter-spacing: 4px;
+    color: var(--gold-light);
+    font-size: 11px;
+    letter-spacing: 5px;
     text-transform: uppercase;
-    margin-bottom: 18px;
+    margin-bottom: 20px;
 }
 
 h2 {
     font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(38px, 5vw, 62px);
+    font-size: clamp(40px, 5vw, 65px);
+    line-height: 1.05;
     font-weight: 600;
-    line-height: 1.1;
-    margin-bottom: 22px;
+    margin-bottom: 25px;
 }
 
 .description {
-    color: var(--muted);
     max-width: 700px;
+    color: var(--muted);
     font-size: 15px;
 }
 
 .btn {
     display: inline-block;
-    padding: 14px 27px;
+    padding: 14px 28px;
     background: var(--gold);
-    color: #111;
+    border: 1px solid var(--gold);
+    color: #100d09;
     text-decoration: none;
-    font-size: 12px;
+    font-size: 11px;
     font-weight: 700;
-    letter-spacing: 1px;
+    letter-spacing: 1.5px;
     text-transform: uppercase;
     transition: .3s;
-    border: 1px solid var(--gold);
 }
 
 .btn:hover {
-    background: #ead0a0;
-    transform: translateY(-3px);
+    background: var(--gold-light);
+    transform: translateY(-4px);
 }
 
 .btn-outline {
     background: transparent;
-    color: var(--gold);
+    color: var(--gold-light);
 }
 
-/* NAVIGATION */
+
+/* =========================
+   NAVIGATION
+========================= */
 
 header {
-    background: rgba(12, 12, 12, .96);
-    border-bottom: 1px solid #333;
     position: sticky;
     top: 0;
     z-index: 100;
-    backdrop-filter: blur(12px);
+    background: rgba(10,9,8,.95);
+    border-bottom: 1px solid rgba(198,154,88,.2);
+    backdrop-filter: blur(15px);
 }
 
 nav {
-    min-height: 80px;
+    min-height: 82px;
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    justify-content: space-between;
 }
 
 .logo {
-    color: white;
     font-family: 'Cormorant Garamond', serif;
     font-size: 27px;
     font-weight: 700;
-    letter-spacing: 2px;
+    color: white;
     text-decoration: none;
+    letter-spacing: 2px;
 }
 
 .logo span {
@@ -132,7 +142,7 @@ nav {
 }
 
 .nav-links a {
-    color: white;
+    color: #eee;
     text-decoration: none;
     font-size: 11px;
     text-transform: uppercase;
@@ -146,86 +156,127 @@ nav {
 
 .menu-btn {
     display: none;
+    border: none;
     background: none;
     color: white;
-    border: none;
     font-size: 28px;
     cursor: pointer;
 }
 
-/* CINEMATIC PREMIUM GOLDEN HERO */
+
+/* =========================
+   HERO SECTION
+   IMAGE + BROWN SMOKE
+========================= */
 
 .hero {
     min-height: 95vh;
     position: relative;
     isolation: isolate;
     overflow: hidden;
+
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
 
-    background:
-        linear-gradient(
-            180deg,
-            rgba(5,5,5,.35),
-            rgba(5,5,5,.48)
-        ),
-        url("./images/hero-house.jpeg") center center / cover no-repeat,
-        #090909;
+    background: #090807;
 }
 
-/* GOLDEN SMOKE EFFECT */
+/* BUILDING BACKGROUND IMAGE */
 
 .hero::before {
     content: "";
     position: absolute;
-    inset: -15%;
+    inset: 0;
     z-index: 0;
     pointer-events: none;
 
-    background:
-        radial-gradient(ellipse at 15% 55%,
-            rgba(184,125,40,.38), transparent 35%),
-        radial-gradient(ellipse at 85% 35%,
-            rgba(218,169,87,.30), transparent 32%),
-        radial-gradient(ellipse at 50% 100%,
-            rgba(151,94,29,.25), transparent 40%),
-        radial-gradient(ellipse at 50% 50%,
-            transparent 30%, rgba(0,0,0,.75) 100%);
+    background-image:
+        linear-gradient(
+            rgba(10,7,5,.25),
+            rgba(10,7,5,.35)
+        ),
+        url("./images/hero-house.jpeg");
 
-    filter: blur(38px);
-    opacity: .9;
-    animation: goldenSmoke 9s ease-in-out infinite alternate;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    /* Soft fading corners */
+
+    -webkit-mask-image: radial-gradient(
+        ellipse 82% 78% at center,
+        #000 35%,
+        rgba(0,0,0,.95) 55%,
+        rgba(0,0,0,.55) 78%,
+        transparent 100%
+    );
+
+    mask-image: radial-gradient(
+        ellipse 82% 78% at center,
+        #000 35%,
+        rgba(0,0,0,.95) 55%,
+        rgba(0,0,0,.55) 78%,
+        transparent 100%
+    );
 }
 
-/* DARK CINEMATIC VIGNETTE */
+/* SMOKY BROWN AND GOLD ATMOSPHERE */
 
 .hero::after {
     content: "";
     position: absolute;
-    inset: 0;
+    inset: -15%;
     z-index: 1;
     pointer-events: none;
 
     background:
-        linear-gradient(
-            90deg,
-            rgba(0,0,0,.65),
-            transparent 35%,
-            transparent 65%,
-            rgba(0,0,0,.65)
+        radial-gradient(
+            ellipse at 12% 45%,
+            rgba(105,59,28,.55),
+            transparent 32%
         ),
-        linear-gradient(
-            0deg,
-            #090909 0%,
-            transparent 28%,
-            transparent 75%,
-            #090909 100%
+        radial-gradient(
+            ellipse at 88% 30%,
+            rgba(160,104,48,.38),
+            transparent 30%
+        ),
+        radial-gradient(
+            ellipse at 50% 95%,
+            rgba(111,68,36,.38),
+            transparent 35%
+        ),
+        radial-gradient(
+            ellipse at 50% 50%,
+            transparent 35%,
+            rgba(0,0,0,.5) 75%,
+            #090807 100%
         );
 
-    box-shadow: inset 0 0 150px 55px #090909;
+    filter: blur(30px);
+    opacity: .95;
+    animation: smokeMove 12s ease-in-out infinite alternate;
 }
+
+@keyframes smokeMove {
+    0% {
+        transform: translate(-2%, 2%) scale(1);
+        opacity: .7;
+    }
+
+    50% {
+        transform: translate(2%, -1%) scale(1.08);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translate(-1%, -2%) scale(1.12);
+        opacity: .8;
+    }
+}
+
+/* HERO CONTENT */
 
 .hero-content {
     position: relative;
@@ -234,102 +285,128 @@ nav {
     padding: 110px 0;
 }
 
+.hero .tag {
+    font-size: 12px;
+    letter-spacing: 7px;
+    color: #e4c18b;
+    margin-bottom: 32px;
+    text-shadow: 0 2px 15px #000;
+}
+
+/* BIG BRAND LETTERS */
+
 .hero h1 {
     font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(48px, 9vw, 125px);
-    line-height: .95;
+    font-size: clamp(65px, 12vw, 155px);
+    line-height: .76;
     font-weight: 700;
-    letter-spacing: 2px;
+    letter-spacing: 5px;
     color: #fff;
-    text-shadow: 0 5px 35px #000;
+    text-shadow:
+        0 5px 25px rgba(0,0,0,.9),
+        0 0 40px rgba(0,0,0,.7);
 }
 
-.hero h1 span {
+.hero h1 .infra {
     display: block;
-    color: #d6ad68;
-    text-shadow: 0 0 25px rgba(214,173,104,.35);
+    color: #d5ad73;
+    margin-top: 22px;
+    text-shadow:
+        0 0 20px rgba(198,154,88,.3),
+        0 5px 30px #000;
 }
 
-.hero .tag {
-    color: #e2bd7e;
-    letter-spacing: 6px;
-}
-
-.hero p {
-    color: #eee;
-    text-shadow: 0 3px 15px #000;
-}
-
-@keyframes goldenSmoke {
-    0% {
-        transform: translate(-3%, 2%) scale(1);
-        opacity: .65;
-    }
-    100% {
-        transform: translate(3%, -2%) scale(1.12);
-        opacity: 1;
-    }
-}
-
-@media(max-width:520px) {
-    .hero {
-        min-height: 80vh;
-        background-position: center;
-    }
-
-    .hero h1 {
-        font-size: clamp(43px, 12vw, 65px);
-    }
-}
-}
-
-/* ABOUT */
-
-.about {
-    background: #171717;
-}
-
-.about-content {
-    max-width: 850px;
-}
-
-.about-content p {
-    color: #aaa;
-    margin: 17px 0;
-    font-size: 15px;
-}
-
-.signature {
-    color: var(--gold);
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 28px;
+.hero h1 .design {
+    display: block;
+    color: #fff0d8;
+    font-size: .42em;
+    font-weight: 500;
+    letter-spacing: 13px;
+    line-height: 1.5;
     margin-top: 25px;
 }
 
-/* EXPERTISE */
+.hero-line {
+    width: 100px;
+    height: 1px;
+    background: var(--gold);
+    margin: 28px auto;
+    box-shadow: 0 0 15px var(--gold);
+}
+
+.hero p {
+    max-width: 650px;
+    margin: 0 auto 30px;
+    color: #f1e9df;
+    font-size: 15px;
+    letter-spacing: 1px;
+    text-shadow: 0 2px 15px #000;
+}
+
+.hero-buttons {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+
+/* =========================
+   ABOUT SECTION
+========================= */
+
+.about {
+    background:
+        radial-gradient(ellipse at 100% 0%, #291b11, transparent 45%),
+        #12100e;
+}
+
+.about-content {
+    max-width: 900px;
+}
+
+.about-content p {
+    color: #aaa39a;
+    font-size: 15px;
+    margin: 18px 0;
+}
+
+.signature {
+    font-family: 'Cormorant Garamond', serif;
+    color: var(--gold);
+    font-size: 30px;
+    margin-top: 30px;
+}
+
+
+/* =========================
+   EXPERTISE
+========================= */
 
 .expertise-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 18px;
-    margin-top: 40px;
+    gap: 20px;
+    margin-top: 45px;
 }
 
 .expertise-card {
-    background: #1c1c1c;
-    padding: 30px;
-    border: 1px solid #333;
-    transition: .3s;
+    background: linear-gradient(145deg, #201811, #15120f);
+    padding: 32px;
+    border: 1px solid rgba(198,154,88,.2);
+    transition: .4s;
 }
 
 .expertise-card:hover {
+    transform: translateY(-7px);
     border-color: var(--gold);
-    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(0,0,0,.3);
 }
 
 .expertise-card span {
     color: var(--gold);
-    font-size: 13px;
+    font-size: 12px;
+    letter-spacing: 2px;
 }
 
 .expertise-card h3 {
@@ -339,64 +416,72 @@ nav {
 }
 
 .expertise-card p {
-    color: #aaa;
+    color: #aaa39a;
     font-size: 13px;
 }
 
-/* SERVICES */
+
+/* =========================
+   SERVICES
+========================= */
 
 .services {
-    background: #171717;
+    background:
+        radial-gradient(ellipse at 0% 50%, #291b11, transparent 40%),
+        #12100e;
 }
 
 .services-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 1px;
-    background: #444;
-    border: 1px solid #444;
-    margin-top: 40px;
+    background: rgba(198,154,88,.25);
+    border: 1px solid rgba(198,154,88,.25);
+    margin-top: 45px;
 }
 
 .service {
-    padding: 30px;
-    background: #171717;
+    background: #15120f;
+    padding: 32px;
     transition: .3s;
 }
 
 .service:hover {
-    background: #202020;
+    background: #271c13;
 }
 
 .service small {
     color: var(--gold);
-    letter-spacing: 2px;
+    letter-spacing: 3px;
 }
 
 .service h3 {
     font-family: 'Cormorant Garamond', serif;
-    font-size: 25px;
+    font-size: 26px;
     margin: 15px 0;
 }
 
 .service p {
-    color: #aaa;
+    color: #aaa39a;
     font-size: 13px;
 }
 
-/* WHY CHOOSE US */
+
+/* =========================
+   WHY CHOOSE US
+========================= */
 
 .why-list {
-    margin-top: 30px;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 20px;
+    margin-top: 40px;
 }
 
 .why-item {
+    padding: 25px;
+    background: #191510;
     border-left: 2px solid var(--gold);
-    padding: 20px;
-    background: #1a1a1a;
 }
 
 .why-item h3 {
@@ -404,54 +489,63 @@ nav {
 }
 
 .why-item p {
-    color: #aaa;
+    color: #aaa39a;
     font-size: 13px;
 }
 
-/* CTA */
+
+/* =========================
+   CTA
+========================= */
 
 .cta {
     text-align: center;
-    background: linear-gradient(120deg, #292116, #111);
+    background:
+        radial-gradient(ellipse at center, #49301c, #120e0a 75%);
+    border-top: 1px solid rgba(198,154,88,.2);
+    border-bottom: 1px solid rgba(198,154,88,.2);
 }
 
 .cta h2 {
-    max-width: 750px;
+    max-width: 800px;
     margin: 0 auto 20px;
 }
 
 .cta p {
-    color: #aaa;
+    color: #c1b5a5;
     margin-bottom: 30px;
 }
 
-/* CONTACT */
+
+/* =========================
+   CONTACT
+========================= */
 
 .contact-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 40px;
-    margin-top: 40px;
+    gap: 45px;
+    margin-top: 45px;
 }
 
 .contact-item {
     padding: 20px 0;
-    border-bottom: 1px solid #333;
+    border-bottom: 1px solid #393027;
 }
 
 .contact-item small {
     display: block;
     color: var(--gold);
-    letter-spacing: 2px;
     font-size: 11px;
+    letter-spacing: 2px;
     text-transform: uppercase;
 }
 
 .contact-item a,
 .contact-item strong {
-    color: white;
+    color: #fff;
+    font-size: 15px;
     text-decoration: none;
-    font-size: 16px;
     overflow-wrap: anywhere;
 }
 
@@ -460,29 +554,33 @@ nav {
 }
 
 .contact-box {
-    background: #1d1d1d;
-    padding: 35px;
-    border: 1px solid #333;
+    padding: 40px;
+    background: linear-gradient(145deg, #281c12, #17120e);
+    border: 1px solid rgba(198,154,88,.3);
 }
 
 .contact-box h3 {
     font-family: 'Cormorant Garamond', serif;
-    font-size: 34px;
+    font-size: 36px;
     margin-bottom: 15px;
 }
 
 .contact-box p {
-    color: #aaa;
+    color: #b6aa9b;
     margin-bottom: 25px;
 }
 
-/* FOOTER */
+
+/* =========================
+   FOOTER
+========================= */
 
 footer {
-    padding: 30px 0;
-    border-top: 1px solid #333;
+    background: #080706;
+    border-top: 1px solid rgba(198,154,88,.2);
+    padding: 35px 0;
     text-align: center;
-    color: #888;
+    color: #8d857c;
     font-size: 12px;
 }
 
@@ -490,9 +588,13 @@ footer span {
     color: var(--gold);
 }
 
-/* MOBILE RESPONSIVE */
+
+/* =========================
+   RESPONSIVE DESIGN
+========================= */
 
 @media(max-width: 800px) {
+
     .menu-btn {
         display: block;
     }
@@ -500,14 +602,14 @@ footer span {
     .nav-links {
         display: none;
         position: absolute;
-        top: 80px;
+        top: 82px;
         left: 0;
         width: 100%;
-        background: #171717;
         padding: 25px;
         flex-direction: column;
-        gap: 22px;
-        border-bottom: 1px solid #333;
+        gap: 20px;
+        background: #15110e;
+        border-bottom: 1px solid var(--gold);
     }
 
     .nav-links.show {
@@ -525,33 +627,38 @@ footer span {
 }
 
 @media(max-width: 520px) {
+
     section {
         padding: 70px 0;
+    }
+
+    .hero {
+        min-height: 82vh;
+    }
+
+    .hero h1 {
+        font-size: clamp(55px, 15vw, 80px);
+        letter-spacing: 1px;
+    }
+
+    .hero h1 .design {
+        letter-spacing: 7px;
+    }
+
+    .hero .tag {
+        font-size: 9px;
+        letter-spacing: 3px;
+    }
+
+    .hero p {
+        font-size: 13px;
+        padding: 0 12px;
     }
 
     .expertise-grid,
     .services-grid,
     .why-list {
         grid-template-columns: 1fr;
-    }
-
-    .hero {
-        min-height: 78vh;
-    }
-
-    .hero h1 {
-        font-size: clamp(43px, 12vw, 65px);
-        letter-spacing: 0;
-    }
-
-    .hero .tag {
-        font-size: 10px;
-        letter-spacing: 3px;
-    }
-
-    .hero p {
-        font-size: 14px;
-        padding: 0 10px;
     }
 
     .logo {
@@ -595,9 +702,10 @@ footer span {
     </nav>
 </header>
 
+
 <main>
 
-<!-- HERO SECTION -->
+<!-- HERO -->
 
 <section class="hero" id="home">
 
@@ -608,9 +716,12 @@ footer span {
         </div>
 
         <h1>
-            CRAFT INFRA
-            <span>&amp; DESIGN</span>
+            CRAFT
+            <span class="infra">INFRA</span>
+            <span class="design">&amp; DESIGN</span>
         </h1>
+
+        <div class="hero-line"></div>
 
         <p>
             Turning Visions Into Reality.
@@ -634,7 +745,8 @@ footer span {
 
 </section>
 
-<!-- ABOUT SECTION -->
+
+<!-- ABOUT -->
 
 <section class="about" id="about">
 
@@ -678,13 +790,15 @@ footer span {
         </p>
 
         <div class="signature">Er Saif Ali</div>
+
         <p class="gold">Craft Infra &amp; Design</p>
 
     </div>
 
 </section>
 
-<!-- EXPERTISE SECTION -->
+
+<!-- EXPERTISE -->
 
 <section id="expertise">
 
@@ -763,7 +877,8 @@ footer span {
 
 </section>
 
-<!-- SERVICES SECTION -->
+
+<!-- SERVICES -->
 
 <section class="services" id="services">
 
@@ -843,6 +958,7 @@ footer span {
 
 </section>
 
+
 <!-- WHY CHOOSE US -->
 
 <section id="why">
@@ -901,7 +1017,8 @@ footer span {
 
 </section>
 
-<!-- CALL TO ACTION -->
+
+<!-- CTA -->
 
 <section class="cta">
 
@@ -928,7 +1045,8 @@ footer span {
 
 </section>
 
-<!-- CONTACT SECTION -->
+
+<!-- CONTACT -->
 
 <section id="contact">
 
@@ -1009,6 +1127,7 @@ footer span {
 
 </main>
 
+
 <!-- FOOTER -->
 
 <footer>
@@ -1027,19 +1146,21 @@ footer span {
 
 </footer>
 
-<script>
 
-// Automatic current year
+<script>
 
 document.getElementById("year").textContent =
     new Date().getFullYear();
 
-// Close mobile menu after clicking a link
-
 document.querySelectorAll(".nav-links a").forEach(link => {
+
     link.addEventListener("click", () => {
-        document.querySelector(".nav-links").classList.remove("show");
+
+        document.querySelector(".nav-links")
+        .classList.remove("show");
+
     });
+
 });
 
 </script>
