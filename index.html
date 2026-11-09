@@ -234,7 +234,7 @@ header {
   }
 }
 
-/* FEATURED PHOTO */
+/* HERO PORTRAIT */
 
 .hero-portrait {
   position:absolute;
@@ -466,23 +466,17 @@ header {
 
 .service-card {
   min-height:245px;
-  padding:34px 28px;
+  padding:28px;
   background:linear-gradient(145deg,#1b1510,#110e0b);
   border:1px solid rgba(198,155,96,.15);
   transition:.35s;
+  overflow:hidden;
 }
 
 .service-card:hover {
   transform:translateY(-7px);
   border-color:var(--gold);
   background:linear-gradient(145deg,#281d13,#120e0a);
-}
-
-.service-number {
-  font-family:'Cormorant Garamond',serif;
-  font-size:38px;
-  color:rgba(198,155,96,.55);
-  margin-bottom:20px;
 }
 
 .service-card h3 {
@@ -496,6 +490,30 @@ header {
   color:var(--muted);
   font-size:12px;
   line-height:1.8;
+}
+
+.service-number {
+  font-family:'Cormorant Garamond',serif;
+  font-size:38px;
+  color:rgba(198,155,96,.55);
+  margin-bottom:15px;
+}
+
+/* CONSTRUCTION SERVICE IMAGE */
+
+.construction-photo {
+  width:100%;
+  height:170px;
+  display:block;
+  object-fit:cover;
+  object-position:center;
+  margin-bottom:20px;
+  border:1px solid rgba(198,155,96,.3);
+  transition:transform .5s;
+}
+
+.service-card:hover .construction-photo {
+  transform:scale(1.025);
 }
 
 /* STATEMENT */
@@ -558,15 +576,32 @@ header {
   position:absolute;
   inset:0;
   background:radial-gradient(circle at 50% 35%,rgba(198,155,96,.25),transparent 60%);
+  z-index:1;
+  pointer-events:none;
+}
+
+.construction-work-image {
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  object-position:center;
+  transition:transform .6s;
+}
+
+.work-card:hover .construction-work-image {
+  transform:scale(1.06);
 }
 
 .work-content {
   position:absolute;
+  z-index:2;
   bottom:0;
   left:0;
   width:100%;
   padding:25px;
-  background:linear-gradient(transparent,rgba(0,0,0,.85));
+  background:linear-gradient(transparent,rgba(0,0,0,.9));
 }
 
 .work-content span {
@@ -824,7 +859,6 @@ footer {
 
   .hero-portrait {
     right:-8%;
-    bottom:0;
     width:78%;
     height:58%;
     opacity:.8;
@@ -836,39 +870,24 @@ footer {
     mask-image:linear-gradient(to bottom,transparent 0%,black 15%,black 75%,transparent 100%);
   }
 
-  .smoke-layer {
-    width:270px;
-    height:420px;
-  }
-
+  .smoke-layer { width:270px; height:420px; }
   .smoke-a { right:-10%; }
   .smoke-b { right:20%; }
   .smoke-c { right:-15%; }
 
   .scroll-note { bottom:15px; }
+  .btn { padding:13px 16px; font-size:9px; }
 
-  .btn {
-    padding:13px 16px;
-    font-size:9px;
-  }
-
-  .about,
-  .services,
-  .work,
-  .process,
-  .contact {
+  .about,.services,.work,.process,.contact {
     padding:80px 0;
   }
 
   .about-visual { min-height:320px; }
   .about-visual-inner { min-height:280px; }
 
-  .services-grid,
-  .work-grid {
-    grid-template-columns:1fr;
-  }
-
+  .services-grid,.work-grid { grid-template-columns:1fr; }
   .service-card { min-height:210px; }
+  .construction-photo { height:190px; }
   .work-card { min-height:260px; }
 
   .process-grid {
@@ -927,11 +946,10 @@ footer {
   <img
     class="hero-background"
     src="./WhatsApp%20Image%202026-11-09%20at%204.53.08%20PM.jpeg"
-    alt="Craft Infra building background"
+    alt="Building background"
   >
 
   <div class="hero-overlay"></div>
-
   <div class="hero-watermark">CRAFT INFRA DESIGN</div>
 
   <!-- SMOKE EFFECT -->
@@ -942,20 +960,17 @@ footer {
   <div class="smoke-layer smoke-d"></div>
   <div class="smoke-layer smoke-e"></div>
 
-  <!-- YOUR FEATURED PHOTO -->
+  <!-- FEATURED PHOTO -->
 
   <div class="hero-portrait">
     <div class="portrait-glow"></div>
-
     <img
-      src="./WhatsApp%20Image%202026-11-07%20at%208.13.15%20PM.jpeg?v=2"
+      src="./WhatsApp%20Image%202026-11-07%20at%208.13.15%20PM.jpeg"
       alt="Craft Infra Design featured photograph"
       loading="eager"
       fetchpriority="high"
     >
   </div>
-
-  <!-- HERO TEXT -->
 
   <div class="hero-content">
     <div class="hero-text">
@@ -984,7 +999,6 @@ footer {
         <a href="#services" class="btn btn-primary">
           Explore Services
         </a>
-
         <a href="#contact" class="btn btn-outline">
           Start a Project
         </a>
@@ -994,13 +1008,11 @@ footer {
   </div>
 
   <div class="scroll-note">Scroll to explore</div>
-
 </section>
 
 <!-- ABOUT SECTION -->
 
 <section class="about" id="about">
-
   <div class="container about-grid">
 
     <div class="about-visual">
@@ -1045,15 +1057,12 @@ footer {
       </div>
 
     </div>
-
   </div>
-
 </section>
 
 <!-- SERVICES SECTION -->
 
 <section class="services" id="services">
-
   <div class="container">
 
     <div class="section-heading">
@@ -1071,12 +1080,20 @@ footer {
 
     <div class="services-grid">
 
+      <!-- BUILDING CONSTRUCTION WITH IMAGE -->
+
       <article class="service-card">
+        <img
+          class="construction-photo"
+          src="./building-construction.png"
+          alt="Building construction project"
+          loading="lazy"
+        >
         <div class="service-number">01</div>
         <h3>Building Construction</h3>
         <p>
           Residential and commercial construction planning
-          focused on functional spaces and thoughtful execution.
+          focused on quality, creativity and execution.
         </p>
       </article>
 
@@ -1127,13 +1144,11 @@ footer {
 
     </div>
   </div>
-
 </section>
 
 <!-- PHILOSOPHY -->
 
 <section class="statement">
-
   <span class="eyebrow">Our Philosophy</span>
 
   <h2>
@@ -1144,13 +1159,11 @@ footer {
   <p>
     CRAFT INFRA & DESIGN — TURNING VISIONS INTO REALITY
   </p>
-
 </section>
 
 <!-- OUR WORK -->
 
 <section class="work" id="work">
-
   <div class="container">
 
     <div class="section-heading">
@@ -1168,10 +1181,18 @@ footer {
 
     <div class="work-grid">
 
+      <!-- SAME CONSTRUCTION PHOTO IN SECOND SLOT -->
+
       <article class="work-card">
+        <img
+          class="construction-work-image"
+          src="./building-construction.png"
+          alt="Building construction project"
+          loading="lazy"
+        >
         <div class="work-content">
-          <span>01 · Architecture</span>
-          <h3>Building Design</h3>
+          <span>01 · Construction</span>
+          <h3>Building Construction</h3>
         </div>
       </article>
 
@@ -1192,17 +1213,15 @@ footer {
     </div>
 
     <p class="work-note">
-      Project photographs can be added here as your portfolio grows.
+      More project photographs and design concepts coming soon.
     </p>
 
   </div>
-
 </section>
 
 <!-- PROCESS -->
 
 <section class="process">
-
   <div class="container">
 
     <div class="section-heading">
@@ -1248,15 +1267,12 @@ footer {
       </div>
 
     </div>
-
   </div>
-
 </section>
 
 <!-- CONTACT -->
 
 <section class="contact" id="contact">
-
   <div class="container">
 
     <span class="eyebrow">Let's Connect</span>
@@ -1295,19 +1311,21 @@ footer {
         </div>
 
         <div class="contact-action">
-
-          <a class="btn btn-primary"
-             href="https://wa.me/918521579125"
-             target="_blank"
-             rel="noopener">
+          <a
+            class="btn btn-primary"
+            href="https://wa.me/918521579125"
+            target="_blank"
+            rel="noopener"
+          >
             WhatsApp Us
           </a>
 
-          <a class="btn btn-outline"
-             href="mailto:craftinfradesign.rmc@gmail.com">
+          <a
+            class="btn btn-outline"
+            href="mailto:craftinfradesign.rmc@gmail.com"
+          >
             Send Email
           </a>
-
         </div>
 
       </div>
@@ -1324,19 +1342,18 @@ footer {
           step towards creating your space.
         </p>
 
-        <a class="btn btn-primary"
-           href="https://wa.me/918521579125?text=Hello%20Craft%20Infra%20%26%20Design%2C%20I%20would%20like%20to%20discuss%20a%20project."
-           target="_blank"
-           rel="noopener">
+        <a
+          class="btn btn-primary"
+          href="https://wa.me/918521579125?text=Hello%20Craft%20Infra%20%26%20Design%2C%20I%20would%20like%20to%20discuss%20a%20project."
+          target="_blank"
+          rel="noopener"
+        >
           Discuss Your Project
         </a>
 
       </div>
-
     </div>
-
   </div>
-
 </section>
 
 </main>
@@ -1344,7 +1361,6 @@ footer {
 <!-- FOOTER -->
 
 <footer>
-
   <div class="container footer-inner">
 
     <div class="footer-brand">
@@ -1359,7 +1375,6 @@ footer {
     </p>
 
   </div>
-
 </footer>
 
 <script>
