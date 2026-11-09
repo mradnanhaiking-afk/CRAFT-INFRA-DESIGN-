@@ -6,7 +6,7 @@
 
 <title>Craft Infra & Design | Building Your Vision</title>
 
-<meta name="description" content="Craft Infra & Design offers architectural design, building construction, interior design and renovation services.">
+<meta name="description" content="Craft Infra & Design offers architectural design, building construction, interior design, exterior design and renovation services.">
 
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 
@@ -17,18 +17,20 @@
     box-sizing: border-box;
 }
 
-html { scroll-behavior: smooth; }
+html {
+    scroll-behavior: smooth;
+}
 
 body {
-    background: #111;
+    background: #101010;
     color: #f5f1e9;
     font-family: 'DM Sans', sans-serif;
     line-height: 1.7;
 }
 
 :root {
-    --gold: #c9a66b;
-    --dark: #111;
+    --gold: #d2ad70;
+    --dark: #101010;
     --light: #f5f1e9;
     --muted: #aaa;
 }
@@ -39,9 +41,13 @@ body {
     margin: auto;
 }
 
-section { padding: 90px 0; }
+section {
+    padding: 95px 0;
+}
 
-.gold { color: var(--gold); }
+.gold {
+    color: var(--gold);
+}
 
 .tag {
     color: var(--gold);
@@ -76,27 +82,28 @@ h2 {
     letter-spacing: 1px;
     text-transform: uppercase;
     transition: .3s;
+    border: 1px solid var(--gold);
 }
 
 .btn:hover {
-    background: #e5c58e;
+    background: #ead0a0;
     transform: translateY(-3px);
 }
 
 .btn-outline {
     background: transparent;
-    border: 1px solid var(--gold);
     color: var(--gold);
 }
 
 /* NAVIGATION */
 
 header {
-    background: #111;
+    background: rgba(12, 12, 12, .96);
     border-bottom: 1px solid #333;
     position: sticky;
     top: 0;
     z-index: 100;
+    backdrop-filter: blur(12px);
 }
 
 nav {
@@ -115,7 +122,9 @@ nav {
     text-decoration: none;
 }
 
-.logo span { color: var(--gold); }
+.logo span {
+    color: var(--gold);
+}
 
 .nav-links {
     display: flex;
@@ -128,9 +137,12 @@ nav {
     font-size: 11px;
     text-transform: uppercase;
     letter-spacing: 1px;
+    transition: .3s;
 }
 
-.nav-links a:hover { color: var(--gold); }
+.nav-links a:hover {
+    color: var(--gold);
+}
 
 .menu-btn {
     display: none;
@@ -138,43 +150,98 @@ nav {
     color: white;
     border: none;
     font-size: 28px;
+    cursor: pointer;
 }
 
-/* HERO */
+/* HERO SECTION WITH BACKGROUND IMAGE */
 
 .hero {
-    min-height: 85vh;
+    min-height: 92vh;
     display: flex;
     align-items: center;
-    background: radial-gradient(circle at 80% 30%, #3c3020, #151515 55%, #090909);
+    justify-content: center;
+    text-align: center;
     position: relative;
+    isolation: isolate;
     overflow: hidden;
+    background: #090909;
 }
 
-.hero::after {
-    content: "CRAFT";
+/* Background photo with fading corners */
+
+.hero::before {
+    content: "";
     position: absolute;
-    right: -30px;
-    bottom: -90px;
-    font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(140px, 25vw, 350px);
-    color: #ffffff08;
-    font-weight: 700;
+    inset: 0;
+    z-index: 0;
     pointer-events: none;
+
+    background-image:
+        linear-gradient(
+            rgba(5, 5, 5, .30),
+            rgba(5, 5, 5, .48)
+        ),
+        url("./images/hero-house.jpeg");
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    -webkit-mask-image: radial-gradient(
+        ellipse 78% 75% at center,
+        #000 38%,
+        rgba(0,0,0,.90) 60%,
+        rgba(0,0,0,.45) 82%,
+        transparent 100%
+    );
+
+    mask-image: radial-gradient(
+        ellipse 78% 75% at center,
+        #000 38%,
+        rgba(0,0,0,.90) 60%,
+        rgba(0,0,0,.45) 82%,
+        transparent 100%
+    );
+}
+
+/* Extra dark overlay for text readability */
+
+.hero::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+    background: radial-gradient(
+        ellipse at center,
+        transparent 25%,
+        rgba(0,0,0,.25) 65%,
+        #090909 100%
+    );
 }
 
 .hero-content {
     position: relative;
     z-index: 2;
-    padding: 80px 0;
+    width: 100%;
+    padding: 100px 0;
+}
+
+.hero .tag {
+    color: #e1c18a;
+    letter-spacing: 6px;
+    font-size: 12px;
+    margin-bottom: 30px;
 }
 
 .hero h1 {
     font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(65px, 11vw, 130px);
-    line-height: .9;
+    font-size: clamp(48px, 9vw, 125px);
+    line-height: .95;
     font-weight: 700;
     letter-spacing: 2px;
+    color: #fff;
+    text-shadow: 0 5px 30px rgba(0,0,0,.85);
 }
 
 .hero h1 span {
@@ -183,21 +250,25 @@ nav {
 }
 
 .hero p {
-    max-width: 580px;
-    color: #ccc;
-    margin: 28px 0;
+    max-width: 650px;
+    margin: 30px auto;
+    color: #eee;
     font-size: 16px;
+    text-shadow: 0 2px 12px #000;
 }
 
 .hero-buttons {
     display: flex;
+    justify-content: center;
     flex-wrap: wrap;
     gap: 15px;
 }
 
 /* ABOUT */
 
-.about { background: #171717; }
+.about {
+    background: #171717;
+}
 
 .about-content {
     max-width: 850px;
@@ -255,7 +326,9 @@ nav {
 
 /* SERVICES */
 
-.services { background: #171717; }
+.services {
+    background: #171717;
+}
 
 .services-grid {
     display: grid;
@@ -269,6 +342,11 @@ nav {
 .service {
     padding: 30px;
     background: #171717;
+    transition: .3s;
+}
+
+.service:hover {
+    background: #202020;
 }
 
 .service small {
@@ -298,11 +376,13 @@ nav {
 
 .why-item {
     border-left: 2px solid var(--gold);
-    padding: 15px 20px;
+    padding: 20px;
     background: #1a1a1a;
 }
 
-.why-item h3 { margin-bottom: 8px; }
+.why-item h3 {
+    margin-bottom: 8px;
+}
 
 .why-item p {
     color: #aaa;
@@ -316,7 +396,10 @@ nav {
     background: linear-gradient(120deg, #292116, #111);
 }
 
-.cta h2 { max-width: 750px; margin: 0 auto 20px; }
+.cta h2 {
+    max-width: 750px;
+    margin: 0 auto 20px;
+}
 
 .cta p {
     color: #aaa;
@@ -345,16 +428,22 @@ nav {
     text-transform: uppercase;
 }
 
-.contact-item a, .contact-item strong {
+.contact-item a,
+.contact-item strong {
     color: white;
     text-decoration: none;
     font-size: 16px;
     overflow-wrap: anywhere;
 }
 
+.contact-item a:hover {
+    color: var(--gold);
+}
+
 .contact-box {
     background: #1d1d1d;
     padding: 35px;
+    border: 1px solid #333;
 }
 
 .contact-box h3 {
@@ -378,12 +467,16 @@ footer {
     font-size: 12px;
 }
 
-footer span { color: var(--gold); }
+footer span {
+    color: var(--gold);
+}
 
-/* MOBILE */
+/* MOBILE RESPONSIVE */
 
 @media(max-width: 800px) {
-    .menu-btn { display: block; }
+    .menu-btn {
+        display: block;
+    }
 
     .nav-links {
         display: none;
@@ -395,38 +488,81 @@ footer span { color: var(--gold); }
         padding: 25px;
         flex-direction: column;
         gap: 22px;
+        border-bottom: 1px solid #333;
     }
 
-    .nav-links.show { display: flex; }
+    .nav-links.show {
+        display: flex;
+    }
 
-    .expertise-grid, .services-grid {
+    .expertise-grid,
+    .services-grid {
         grid-template-columns: repeat(2, 1fr);
     }
 
-    .contact-grid { grid-template-columns: 1fr; }
+    .contact-grid {
+        grid-template-columns: 1fr;
+    }
 }
 
 @media(max-width: 520px) {
-    section { padding: 70px 0; }
+    section {
+        padding: 70px 0;
+    }
 
-    .expertise-grid, .services-grid, .why-list {
+    .expertise-grid,
+    .services-grid,
+    .why-list {
         grid-template-columns: 1fr;
     }
 
-    .hero h1 { font-size: 64px; }
+    .hero {
+        min-height: 78vh;
+    }
 
-    .contact-box { padding: 25px; }
+    .hero h1 {
+        font-size: clamp(43px, 12vw, 65px);
+        letter-spacing: 0;
+    }
+
+    .hero .tag {
+        font-size: 10px;
+        letter-spacing: 3px;
+    }
+
+    .hero p {
+        font-size: 14px;
+        padding: 0 10px;
+    }
+
+    .logo {
+        font-size: 23px;
+    }
+
+    .contact-box {
+        padding: 25px;
+    }
 }
+
 </style>
 </head>
 
 <body>
 
+<!-- HEADER -->
+
 <header>
     <nav class="container">
-        <a href="#home" class="logo">CRAFT <span>INFRA</span></a>
 
-        <button class="menu-btn" onclick="document.querySelector('.nav-links').classList.toggle('show')">☰</button>
+        <a href="#home" class="logo">
+            CRAFT <span>INFRA</span>
+        </a>
+
+        <button class="menu-btn"
+        aria-label="Open navigation menu"
+        onclick="document.querySelector('.nav-links').classList.toggle('show')">
+            ☰
+        </button>
 
         <div class="nav-links">
             <a href="#home">Home</a>
@@ -436,38 +572,64 @@ footer span { color: var(--gold); }
             <a href="#why">Why Us</a>
             <a href="#contact">Contact</a>
         </div>
+
     </nav>
 </header>
 
 <main>
 
-<section class="hero" id="home">
-    <div class="container hero-content">
-        <div class="tag">Architecture · Construction · Design</div>
+<!-- HERO SECTION -->
 
-        <h1>CRAFT <span>INFRA</span> DESIGN</h1>
+<section class="hero" id="home">
+
+    <div class="container hero-content">
+
+        <div class="tag">
+            ARCHITECTURE · CONSTRUCTION · DESIGN
+        </div>
+
+        <h1>
+            CRAFT INFRA
+            <span>&amp; DESIGN</span>
+        </h1>
 
         <p>
-            Turning Visions Into Reality. We believe every space
-            deserves thoughtful design, quality craftsmanship and
-            a vision that lasts.
+            Turning Visions Into Reality.
+            Thoughtful Architecture. Timeless Design.
+            Quality Construction.
         </p>
 
         <div class="hero-buttons">
-            <a href="#about" class="btn">Discover Our Company</a>
-            <a href="#contact" class="btn btn-outline">Contact Us</a>
+
+            <a href="#about" class="btn">
+                Discover Our Company
+            </a>
+
+            <a href="#contact" class="btn btn-outline">
+                Contact Us
+            </a>
+
         </div>
+
     </div>
+
 </section>
 
-<section class="section about" id="about">
+<!-- ABOUT SECTION -->
+
+<section class="about" id="about">
+
     <div class="container about-content">
+
         <div class="tag">About Our Company</div>
 
-        <h2>Turning Visions <span class="gold">Into Reality.</span></h2>
+        <h2>
+            Turning Visions
+            <span class="gold">Into Reality.</span>
+        </h2>
 
         <p>
-            Craft Infra & Design is dedicated to creating exceptional
+            Craft Infra &amp; Design is dedicated to creating exceptional
             spaces through innovative architectural design, quality
             construction and thoughtful craftsmanship.
         </p>
@@ -485,68 +647,115 @@ footer span { color: var(--gold); }
             of time.
         </p>
 
-        <p><strong class="gold">Our Vision:</strong> To shape the future of construction and design through innovation, excellence and trust.</p>
+        <p>
+            <strong class="gold">Our Vision:</strong>
+            To shape the future of construction and design through
+            innovation, excellence and trust.
+        </p>
 
-        <p><strong class="gold">Our Promise:</strong> Quality in every detail. Excellence in every project.</p>
+        <p>
+            <strong class="gold">Our Promise:</strong>
+            Quality in every detail. Excellence in every project.
+        </p>
 
         <div class="signature">Er Saif Ali</div>
-        <p class="gold">Craft Infra & Design</p>
+        <p class="gold">Craft Infra &amp; Design</p>
+
     </div>
+
 </section>
 
-<section class="section" id="expertise">
+<!-- EXPERTISE SECTION -->
+
+<section id="expertise">
+
     <div class="container">
+
         <div class="tag">Our Expertise</div>
-        <h2>What We <span class="gold">Do Best.</span></h2>
+
+        <h2>
+            What We <span class="gold">Do Best.</span>
+        </h2>
+
         <p class="description">
             Our areas of focus combine creativity, planning and
             practical design thinking.
         </p>
 
         <div class="expertise-grid">
+
             <div class="expertise-card">
                 <span>01 / EXPERTISE</span>
                 <h3>Building Construction</h3>
-                <p>Construction solutions focused on quality, planning and lasting value.</p>
+                <p>
+                    Construction solutions focused on quality,
+                    planning and lasting value.
+                </p>
             </div>
 
             <div class="expertise-card">
                 <span>02 / EXPERTISE</span>
                 <h3>Interior Design</h3>
-                <p>Comfortable, beautiful and functional spaces designed with care.</p>
+                <p>
+                    Comfortable, beautiful and functional spaces
+                    designed with care.
+                </p>
             </div>
 
             <div class="expertise-card">
                 <span>03 / EXPERTISE</span>
                 <h3>Exterior Design</h3>
-                <p>Distinctive exterior concepts with a refined architectural identity.</p>
+                <p>
+                    Distinctive exterior concepts with a refined
+                    architectural identity.
+                </p>
             </div>
 
             <div class="expertise-card">
                 <span>04 / EXPERTISE</span>
                 <h3>Architectural Design</h3>
-                <p>Creative planning that balances appearance and functionality.</p>
+                <p>
+                    Creative planning that balances appearance
+                    and functionality.
+                </p>
             </div>
 
             <div class="expertise-card">
                 <span>05 / EXPERTISE</span>
-                <h3>3D Elevation & Visualization</h3>
-                <p>Visual concepts that help bring design ideas to life.</p>
+                <h3>3D Elevation &amp; Visualization</h3>
+                <p>
+                    Visual concepts that help bring design ideas
+                    to life.
+                </p>
             </div>
 
             <div class="expertise-card">
                 <span>06 / EXPERTISE</span>
-                <h3>Renovation & Remodeling</h3>
-                <p>Fresh ideas and improved layouts for existing spaces.</p>
+                <h3>Renovation &amp; Remodeling</h3>
+                <p>
+                    Fresh ideas and improved layouts for
+                    existing spaces.
+                </p>
             </div>
+
         </div>
+
     </div>
+
 </section>
 
-<section class="section services" id="services">
+<!-- SERVICES SECTION -->
+
+<section class="services" id="services">
+
     <div class="container">
+
         <div class="tag">Our Services</div>
-        <h2>Solutions Built Around <span class="gold">You.</span></h2>
+
+        <h2>
+            Solutions Built Around
+            <span class="gold">You.</span>
+        </h2>
 
         <p class="description">
             Explore our services and find the right starting point
@@ -554,49 +763,79 @@ footer span { color: var(--gold); }
         </p>
 
         <div class="services-grid">
+
             <div class="service">
                 <small>01</small>
                 <h3>Residential Construction</h3>
-                <p>Homes designed around your lifestyle and requirements.</p>
+                <p>
+                    Homes designed around your lifestyle
+                    and requirements.
+                </p>
             </div>
 
             <div class="service">
                 <small>02</small>
                 <h3>Commercial Construction</h3>
-                <p>Functional spaces for business and professional use.</p>
+                <p>
+                    Functional spaces for business
+                    and professional use.
+                </p>
             </div>
 
             <div class="service">
                 <small>03</small>
-                <h3>Interior & Space Planning</h3>
-                <p>Thoughtful layouts that make every space count.</p>
+                <h3>Interior &amp; Space Planning</h3>
+                <p>
+                    Thoughtful layouts that make
+                    every space count.
+                </p>
             </div>
 
             <div class="service">
                 <small>04</small>
-                <h3>Elevation & Facade Design</h3>
-                <p>Modern exterior concepts for a memorable appearance.</p>
+                <h3>Elevation &amp; Facade Design</h3>
+                <p>
+                    Modern exterior concepts for
+                    a memorable appearance.
+                </p>
             </div>
 
             <div class="service">
                 <small>05</small>
-                <h3>Renovation & Remodeling</h3>
-                <p>Giving existing spaces a fresh look and new purpose.</p>
+                <h3>Renovation &amp; Remodeling</h3>
+                <p>
+                    Giving existing spaces a fresh
+                    look and new purpose.
+                </p>
             </div>
 
             <div class="service">
                 <small>06</small>
                 <h3>Project Planning</h3>
-                <p>Organized design and planning to move projects forward.</p>
+                <p>
+                    Organized design and planning
+                    to move projects forward.
+                </p>
             </div>
+
         </div>
+
     </div>
+
 </section>
 
-<section class="section" id="why">
+<!-- WHY CHOOSE US -->
+
+<section id="why">
+
     <div class="container">
+
         <div class="tag">Why Choose Us</div>
-        <h2>Our Commitment to <span class="gold">Excellence.</span></h2>
+
+        <h2>
+            Our Commitment to
+            <span class="gold">Excellence.</span>
+        </h2>
 
         <p class="description">
             Every project begins with an idea. We focus on turning
@@ -604,49 +843,93 @@ footer span { color: var(--gold); }
         </p>
 
         <div class="why-list">
+
             <div class="why-item">
                 <h3>Attention to Detail</h3>
-                <p>Careful thought goes into every design element.</p>
+                <p>
+                    Careful thought goes into every
+                    design element.
+                </p>
             </div>
 
             <div class="why-item">
                 <h3>Creative Approach</h3>
-                <p>Fresh ideas and practical thinking for every space.</p>
+                <p>
+                    Fresh ideas and practical thinking
+                    for every space.
+                </p>
             </div>
 
             <div class="why-item">
                 <h3>Quality Focus</h3>
-                <p>A commitment to thoughtful workmanship and lasting value.</p>
+                <p>
+                    A commitment to thoughtful workmanship
+                    and lasting value.
+                </p>
             </div>
 
             <div class="why-item">
                 <h3>Client-Centered Process</h3>
-                <p>Your vision and requirements remain at the heart of the process.</p>
+                <p>
+                    Your vision and requirements remain
+                    at the heart of the process.
+                </p>
             </div>
+
         </div>
+
     </div>
+
 </section>
 
-<section class="section cta">
+<!-- CALL TO ACTION -->
+
+<section class="cta">
+
     <div class="container">
-        <div class="tag">Let's Create Something Exceptional</div>
-        <h2>Your Vision. Our <span class="gold">Craftsmanship.</span></h2>
-        <p>Let's discuss your next construction or design project.</p>
-        <a href="#contact" class="btn">Start A Conversation</a>
+
+        <div class="tag">
+            Let's Create Something Exceptional
+        </div>
+
+        <h2>
+            Your Vision.
+            Our <span class="gold">Craftsmanship.</span>
+        </h2>
+
+        <p>
+            Let's discuss your next construction or design project.
+        </p>
+
+        <a href="#contact" class="btn">
+            Start A Conversation
+        </a>
+
     </div>
+
 </section>
 
-<section class="section" id="contact">
+<!-- CONTACT SECTION -->
+
+<section id="contact">
+
     <div class="container">
+
         <div class="tag">Get In Touch</div>
-        <h2>Let's Build <span class="gold">Together.</span></h2>
+
+        <h2>
+            Let's Build <span class="gold">Together.</span>
+        </h2>
 
         <p class="description">
-            Have an idea, a project or a question? Reach out to us.
+            Have an idea, a project or a question?
+            Reach out to us.
         </p>
 
         <div class="contact-grid">
+
             <div>
+
                 <div class="contact-item">
                     <small>Contact Person</small>
                     <strong>Er Saif Ali</strong>
@@ -654,60 +937,47 @@ footer span { color: var(--gold); }
 
                 <div class="contact-item">
                     <small>Email Address</small>
-                    <a href="mailto:craftinfradesign.rmc@gmail.com">craftinfradesign.rmc@gmail.com</a>
+                    <a href="mailto:craftinfradesign.rmc@gmail.com">
+                        craftinfradesign.rmc@gmail.com
+                    </a>
                 </div>
 
                 <div class="contact-item">
                     <small>Phone Number</small>
-                    <a href="tel:+918521579125">+91 85215 79125</a>
+                    <a href="tel:+918521579125">
+                        +91 85215 79125
+                    </a>
                 </div>
 
                 <div class="contact-item">
                     <small>WhatsApp</small>
-                    <a href="https://wa.me/918521579125" target="_blank">Chat With Us</a>
+                    <a href="https://wa.me/918521579125" target="_blank">
+                        Chat With Us
+                    </a>
                 </div>
+
             </div>
 
             <div class="contact-box">
+
                 <h3>Have a Project in Mind?</h3>
+
                 <p>
-                    Tell us what you are planning. Connect with
-                    Craft Infra & Design directly.
+                    Tell us what you are planning.
+                    Connect with Craft Infra &amp; Design directly.
                 </p>
 
-                <a class="btn" href="https://wa.me/918521579125?text=Hello%20Craft%20Infra%20%26%20Design%2C%20I%20would%20like%20to%20discuss%20a%20project." target="_blank">
+                <a class="btn"
+                href="https://wa.me/918521579125?text=Hello%20Craft%20Infra%20%26%20Design%2C%20I%20would%20like%20to%20discuss%20a%20project."
+                target="_blank">
                     WhatsApp Us
                 </a>
 
                 <br><br>
 
-                <a class="btn btn-outline" href="mailto:craftinfradesign.rmc@gmail.com">
+                <a class="btn btn-outline"
+                href="mailto:craftinfradesign.rmc@gmail.com">
                     Send Email
                 </a>
+
             </div>
-        </div>
-    </div>
-</section>
-
-</main>
-
-<footer>
-    <div class="container">
-        © <span id="year"></span> <span>Craft Infra & Design</span>. All Rights Reserved.
-        <br>
-        Architecture · Construction · Design
-    </div>
-</footer>
-
-<script>
-document.getElementById("year").textContent = new Date().getFullYear();
-
-document.querySelectorAll(".nav-links a").forEach(link => {
-    link.addEventListener("click", () => {
-        document.querySelector(".nav-links").classList.remove("show");
-    });
-});
-</script>
-
-</body>
-</html>
