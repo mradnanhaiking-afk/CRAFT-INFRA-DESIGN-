@@ -370,6 +370,8 @@ header {
   border-color:var(--gold);
   background:linear-gradient(145deg,#281d13,#120e0a);
 }
+
+/* CONSTRUCTION PHOTO */
 .construction-photo {
   width:100%;
   height:190px;
@@ -380,7 +382,25 @@ header {
   border:1px solid rgba(198,155,96,.3);
   transition:transform .5s;
 }
-.service-card:hover .construction-photo { transform:scale(1.025); }
+.service-card:hover .construction-photo {
+  transform:scale(1.025);
+}
+
+/* INTERIOR PHOTO */
+.interior-photo {
+  width:100%;
+  height:190px;
+  display:block;
+  object-fit:cover;
+  object-position:center;
+  margin-bottom:22px;
+  border:1px solid rgba(198,155,96,.3);
+  transition:transform .5s;
+}
+.service-card:hover .interior-photo {
+  transform:scale(1.025);
+}
+
 .service-number {
   font-family:'Cormorant Garamond',serif;
   font-size:38px;
@@ -415,7 +435,11 @@ header {
   font-weight:500;
   line-height:1.1;
 }
-.statement p { color:var(--muted); font-size:13px; letter-spacing:1px; }
+.statement p {
+  color:var(--muted);
+  font-size:13px;
+  letter-spacing:1px;
+}
 
 /* WORK */
 .work { padding:115px 0; background:#15100c; }
@@ -448,7 +472,21 @@ header {
   object-position:center;
   transition:transform .6s;
 }
-.work-card:hover .construction-work-image { transform:scale(1.06); }
+.work-card:hover .construction-work-image {
+  transform:scale(1.06);
+}
+.interior-work-image {
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  object-position:center;
+  transition:transform .6s;
+}
+.work-card:hover .interior-work-image {
+  transform:scale(1.06);
+}
 .work-content {
   position:absolute;
   z-index:2;
@@ -484,7 +522,10 @@ header {
   gap:25px;
   margin-top:55px;
 }
-.process-item { border-top:1px solid var(--gold); padding-top:22px; }
+.process-item {
+  border-top:1px solid var(--gold);
+  padding-top:22px;
+}
 .process-item span {
   color:var(--gold);
   font-family:'Cormorant Garamond',serif;
@@ -496,7 +537,11 @@ header {
   margin:15px 0 10px;
   font-weight:500;
 }
-.process-item p { color:var(--muted); font-size:12px; line-height:1.8; }
+.process-item p {
+  color:var(--muted);
+  font-size:12px;
+  line-height:1.8;
+}
 
 /* CONTACT */
 .contact {
@@ -515,7 +560,10 @@ header {
   line-height:1.9;
   max-width:450px;
 }
-.contact-detail { padding:18px 0; border-bottom:1px solid var(--line); }
+.contact-detail {
+  padding:18px 0;
+  border-bottom:1px solid var(--line);
+}
 .contact-detail small {
   color:var(--gold);
   letter-spacing:2px;
@@ -529,7 +577,12 @@ header {
   font-size:14px;
   overflow-wrap:anywhere;
 }
-.contact-action { margin-top:28px; display:flex; gap:12px; flex-wrap:wrap; }
+.contact-action {
+  margin-top:28px;
+  display:flex;
+  gap:12px;
+  flex-wrap:wrap;
+}
 .contact-panel {
   border:1px solid var(--line);
   background:rgba(12,9,7,.4);
@@ -564,7 +617,11 @@ footer {
   gap:20px;
   flex-wrap:wrap;
 }
-.footer-inner p { color:#8e8277; font-size:10px; letter-spacing:1px; }
+.footer-inner p {
+  color:#8e8277;
+  font-size:10px;
+  letter-spacing:1px;
+}
 .footer-brand {
   font-family:'Cormorant Garamond',serif;
   color:var(--gold-light);
@@ -575,13 +632,21 @@ footer {
 @media(max-width:850px) {
   .nav-links { gap:14px; }
   .nav-links a { font-size:9px; }
-  .about-grid,.contact-grid { grid-template-columns:1fr; gap:40px; }
+  .about-grid,.contact-grid {
+    grid-template-columns:1fr;
+    gap:40px;
+  }
   .services-grid { grid-template-columns:repeat(2,1fr); }
   .work-grid { grid-template-columns:repeat(2,1fr); }
   .process-grid { grid-template-columns:repeat(2,1fr); }
 }
+
 @media(max-width:600px) {
-  .navbar { min-height:75px; flex-wrap:wrap; padding:12px 0; }
+  .navbar {
+    min-height:75px;
+    flex-wrap:wrap;
+    padding:12px 0;
+  }
   .logo-name { font-size:17px; }
   .nav-links {
     width:100%;
@@ -589,11 +654,25 @@ footer {
     gap:8px;
     padding-bottom:8px;
   }
-  .nav-links a { font-size:8px; letter-spacing:.7px; }
+  .nav-links a {
+    font-size:8px;
+    letter-spacing:.7px;
+  }
   .nav-contact { padding:7px 9px; }
-  .hero { min-height:760px; height:100svh; }
-  .hero-background { object-position:center; opacity:.43; }
-  .hero-watermark { font-size:15vw; letter-spacing:2px; top:34%; }
+
+  .hero {
+    min-height:760px;
+    height:100svh;
+  }
+  .hero-background {
+    object-position:center;
+    opacity:.43;
+  }
+  .hero-watermark {
+    font-size:15vw;
+    letter-spacing:2px;
+    top:34%;
+  }
   .hero-content {
     width:90%;
     padding-top:50px;
@@ -607,10 +686,25 @@ footer {
     position:relative;
     z-index:4;
   }
-  .hero-title { font-size:clamp(55px,14vw,82px); letter-spacing:1px; }
-  .hero-tag { font-size:9px; letter-spacing:3px; margin-bottom:22px; }
-  .hero-subtitle { font-size:9px; letter-spacing:2px; margin-top:25px; }
-  .hero-description { font-size:11px; max-width:310px; margin:14px 0 20px; }
+  .hero-title {
+    font-size:clamp(55px,14vw,82px);
+    letter-spacing:1px;
+  }
+  .hero-tag {
+    font-size:9px;
+    letter-spacing:3px;
+    margin-bottom:22px;
+  }
+  .hero-subtitle {
+    font-size:9px;
+    letter-spacing:2px;
+    margin-top:25px;
+  }
+  .hero-description {
+    font-size:11px;
+    max-width:310px;
+    margin:14px 0 20px;
+  }
   .hero-portrait {
     right:-10%;
     bottom:0;
@@ -629,17 +723,27 @@ footer {
   .smoke-c { right:-15%; }
   .scroll-note { bottom:15px; }
   .btn { padding:13px 16px; font-size:9px; }
-  .about,.services,.work,.process,.contact { padding:80px 0; }
+
+  .about,.services,.work,.process,.contact {
+    padding:80px 0;
+  }
   .about-visual { min-height:320px; }
   .about-visual-inner { min-height:280px; }
   .services-grid,.work-grid { grid-template-columns:1fr; }
   .service-card { min-height:210px; }
-  .construction-photo { height:190px; }
+  .construction-photo,.interior-photo { height:190px; }
   .work-card { min-height:280px; }
-  .process-grid { grid-template-columns:1fr 1fr; gap:30px 18px; }
+  .process-grid {
+    grid-template-columns:1fr 1fr;
+    gap:30px 18px;
+  }
   .contact-panel { padding:25px; }
-  .footer-inner { justify-content:center; text-align:center; }
+  .footer-inner {
+    justify-content:center;
+    text-align:center;
+  }
 }
+
 @media(prefers-reduced-motion:reduce) {
   *,*::before,*::after {
     animation-duration:.01ms!important;
@@ -652,6 +756,7 @@ footer {
 
 <body>
 
+<!-- NAVIGATION -->
 <header>
   <div class="container navbar">
     <a href="#home" class="logo">
@@ -661,6 +766,7 @@ footer {
         <span class="logo-small">ARCHITECTURE · CONSTRUCTION</span>
       </div>
     </a>
+
     <ul class="nav-links">
       <li><a href="#home">Home</a></li>
       <li><a href="#about">About</a></li>
@@ -675,6 +781,7 @@ footer {
 
 <!-- HERO -->
 <section class="hero" id="home">
+
   <img class="hero-background"
     src="./WhatsApp%20Image%202026-11-09%20at%204.53.08%20PM.jpeg"
     alt="Craft Infra building background">
@@ -697,30 +804,46 @@ footer {
 
   <div class="hero-content">
     <div class="hero-text">
-      <p class="hero-tag">Architecture · Construction · Design</p>
+
+      <p class="hero-tag">
+        Architecture · Construction · Design
+      </p>
+
       <h1 class="hero-title">
         <span>CRAFT</span>
         <span class="second">INFRA</span>
         <span>DESIGN</span>
       </h1>
-      <p class="hero-subtitle">Turning Visions Into Reality</p>
+
+      <p class="hero-subtitle">
+        Turning Visions Into Reality
+      </p>
+
       <p class="hero-description">
         We bring ideas to life through thoughtful architecture,
         quality construction and inspired design.
         Building spaces that reflect your vision.
       </p>
+
       <div class="hero-buttons">
-        <a href="#services" class="btn btn-primary">Explore Services</a>
-        <a href="#contact" class="btn btn-outline">Start a Project</a>
+        <a href="#services" class="btn btn-primary">
+          Explore Services
+        </a>
+        <a href="#contact" class="btn btn-outline">
+          Start a Project
+        </a>
       </div>
+
     </div>
   </div>
+
   <div class="scroll-note">Scroll to explore</div>
 </section>
 
 <!-- ABOUT -->
 <section class="about" id="about">
   <div class="container about-grid">
+
     <div class="about-visual">
       <div class="about-visual-inner">
         <div class="visual-caption">
@@ -731,28 +854,37 @@ footer {
     </div>
 
     <div class="about-content">
+
       <span class="eyebrow">Who We Are</span>
+
       <h2 class="section-title">
         Creating Spaces.<br>
         <span class="gold">Building Dreams.</span>
       </h2>
+
       <p>
         Craft Infra & Design is focused on transforming ideas
         into thoughtfully designed and beautifully built spaces.
         We bring together creativity, planning and construction
         to shape spaces that feel purposeful and timeless.
       </p>
+
       <p>
         From architectural concepts and 3D elevations to
         interiors, exteriors and construction, our aim is to
         understand every vision and work towards bringing it
         to life.
       </p>
+
       <p>
         Every project begins with an idea. Our approach is to
         give that idea clarity, character and a design of its own.
       </p>
-      <div class="about-signature">Craft Infra & Design</div>
+
+      <div class="about-signature">
+        Craft Infra & Design
+      </div>
+
     </div>
   </div>
 </section>
@@ -760,9 +892,14 @@ footer {
 <!-- SERVICES -->
 <section class="services" id="services">
   <div class="container">
+
     <div class="section-heading">
       <span class="eyebrow">What We Do</span>
-      <h2 class="section-title">Our <span class="gold">Expertise</span></h2>
+
+      <h2 class="section-title">
+        Our <span class="gold">Expertise</span>
+      </h2>
+
       <p class="section-copy" style="margin:auto">
         Thoughtful planning, creative design and construction
         solutions for spaces made around your vision.
@@ -771,46 +908,101 @@ footer {
 
     <div class="services-grid">
 
-      <!-- CONSTRUCTION IMAGE -->
+      <!-- 01 BUILDING CONSTRUCTION -->
       <article class="service-card">
+
         <img
           class="construction-photo"
           src="./file_00000000c7a88211903240506bc1a716.png"
           alt="Building Construction Project"
           loading="lazy">
+
         <div class="service-number">01</div>
+
         <h3>Building Construction</h3>
-        <p>Residential and commercial construction planning focused on functional spaces and thoughtful execution.</p>
+
+        <p>
+          Residential and commercial construction planning
+          focused on functional spaces and thoughtful execution.
+        </p>
+
       </article>
 
+      <!-- 02 INTERIOR DESIGN -->
       <article class="service-card">
+
+        <img
+          class="interior-photo"
+          src="./WhatsApp%20Image%202026-11-09%20at%204.53.11%20PM%20%281%29.jpeg"
+          alt="Modern Interior Design with Glass Staircase"
+          loading="lazy">
+
         <div class="service-number">02</div>
+
         <h3>Interior Design</h3>
-        <p>Beautiful and practical interiors with attention to space, materials, details and comfort.</p>
+
+        <p>
+          Beautiful and practical interiors with elegant
+          staircases, premium materials, modern layouts
+          and attention to every detail.
+        </p>
+
       </article>
 
+      <!-- 03 EXTERIOR DESIGN -->
       <article class="service-card">
+
         <div class="service-number">03</div>
+
         <h3>Exterior Design</h3>
-        <p>Exterior concepts that give buildings a distinctive character and a refined visual identity.</p>
+
+        <p>
+          Exterior concepts that give buildings a distinctive
+          character and a refined visual identity.
+        </p>
+
       </article>
 
+      <!-- 04 ARCHITECTURAL DESIGN -->
       <article class="service-card">
+
         <div class="service-number">04</div>
+
         <h3>Architectural Design</h3>
-        <p>Creative architectural concepts and space planning designed around project requirements.</p>
+
+        <p>
+          Creative architectural concepts and space planning
+          designed around project requirements.
+        </p>
+
       </article>
 
+      <!-- 05 3D ELEVATION -->
       <article class="service-card">
+
         <div class="service-number">05</div>
+
         <h3>3D Elevation & Visualization</h3>
-        <p>Visualize your project with 3D concepts and elevation designs before construction begins.</p>
+
+        <p>
+          Visualize your project with 3D concepts and
+          elevation designs before construction begins.
+        </p>
+
       </article>
 
+      <!-- 06 RENOVATION -->
       <article class="service-card">
+
         <div class="service-number">06</div>
+
         <h3>Renovation & Remodeling</h3>
-        <p>Reimagining existing spaces with fresh design ideas, improved layouts and thoughtful updates.</p>
+
+        <p>
+          Reimagining existing spaces with fresh design ideas,
+          improved layouts and thoughtful updates.
+        </p>
+
       </article>
 
     </div>
@@ -819,51 +1011,79 @@ footer {
 
 <!-- STATEMENT -->
 <section class="statement">
+
   <span class="eyebrow">Our Philosophy</span>
+
   <h2>
     Great spaces are not just built.
     They are <span class="gold">thoughtfully created.</span>
   </h2>
-  <p>CRAFT INFRA & DESIGN — TURNING VISIONS INTO REALITY</p>
+
+  <p>
+    CRAFT INFRA & DESIGN — TURNING VISIONS INTO REALITY
+  </p>
+
 </section>
 
 <!-- OUR WORK -->
 <section class="work" id="work">
   <div class="container">
+
     <div class="section-heading">
       <span class="eyebrow">Ideas Into Reality</span>
-      <h2 class="section-title">Our <span class="gold">Work</span></h2>
+
+      <h2 class="section-title">
+        Our <span class="gold">Work</span>
+      </h2>
+
       <p class="section-copy" style="margin:auto">
-        A space for our design concepts, architectural visualizations and project photographs.
+        A space for our design concepts, architectural
+        visualizations and project photographs.
       </p>
     </div>
 
     <div class="work-grid">
 
+      <!-- CONSTRUCTION PROJECT -->
       <article class="work-card">
+
         <img
           class="construction-work-image"
           src="./file_00000000c7a88211903240506bc1a716.png"
           alt="Building Construction Project"
           loading="lazy">
+
         <div class="work-content">
           <span>01 · Construction</span>
           <h3>Building Construction</h3>
         </div>
+
       </article>
 
+      <!-- INTERIOR PROJECT -->
       <article class="work-card">
+
+        <img
+          class="interior-work-image"
+          src="./WhatsApp%20Image%202026-11-09%20at%204.53.11%20PM%20%281%29.jpeg"
+          alt="Interior Design Project"
+          loading="lazy">
+
         <div class="work-content">
           <span>02 · Interiors</span>
           <h3>Interior Concepts</h3>
         </div>
+
       </article>
 
+      <!-- 3D PROJECT -->
       <article class="work-card">
+
         <div class="work-content">
           <span>03 · Visualization</span>
           <h3>3D Elevation</h3>
         </div>
+
       </article>
 
     </div>
@@ -871,40 +1091,56 @@ footer {
     <p class="work-note">
       More project photographs can be added here as your portfolio grows.
     </p>
+
   </div>
 </section>
 
 <!-- PROCESS -->
 <section class="process">
   <div class="container">
+
     <div class="section-heading">
       <span class="eyebrow">How We Work</span>
+
       <h2 class="section-title">
         From Vision <span class="gold">To Reality</span>
       </h2>
     </div>
 
     <div class="process-grid">
+
       <div class="process-item">
         <span>01</span>
         <h3>Discover</h3>
-        <p>We understand your ideas, needs and project vision.</p>
+        <p>
+          We understand your ideas, needs and project vision.
+        </p>
       </div>
+
       <div class="process-item">
         <span>02</span>
         <h3>Design</h3>
-        <p>We develop concepts and thoughtful design solutions.</p>
+        <p>
+          We develop concepts and thoughtful design solutions.
+        </p>
       </div>
+
       <div class="process-item">
         <span>03</span>
         <h3>Plan</h3>
-        <p>We work through the planning and project requirements.</p>
+        <p>
+          We work through the planning and project requirements.
+        </p>
       </div>
+
       <div class="process-item">
         <span>04</span>
         <h3>Create</h3>
-        <p>We move towards bringing the vision into reality.</p>
+        <p>
+          We move towards bringing the vision into reality.
+        </p>
       </div>
+
     </div>
   </div>
 </section>
@@ -912,13 +1148,17 @@ footer {
 <!-- CONTACT -->
 <section class="contact" id="contact">
   <div class="container">
+
     <span class="eyebrow">Let's Connect</span>
+
     <h2 class="section-title">
       Have a Project <span class="gold">In Mind?</span>
     </h2>
 
     <div class="contact-grid">
+
       <div>
+
         <p class="contact-intro">
           Have an idea for a new home, commercial space,
           interior or architectural project?
@@ -939,36 +1179,48 @@ footer {
 
         <div class="contact-detail">
           <small>Phone Number</small>
-          <a href="tel:+918521579125">+91 85215 79125</a>
+          <a href="tel:+918521579125">
+            +91 85215 79125
+          </a>
         </div>
 
         <div class="contact-action">
+
           <a class="btn btn-primary"
              href="https://wa.me/918521579125"
              target="_blank" rel="noopener">
             WhatsApp Us
           </a>
+
           <a class="btn btn-outline"
              href="mailto:craftinfradesign.rmc@gmail.com">
             Send Email
           </a>
+
         </div>
+
       </div>
 
       <div class="contact-panel">
+
         <span class="eyebrow">Craft Infra & Design</span>
+
         <h3>Let's build something meaningful.</h3>
+
         <p>
           Every great project starts with a conversation.
           Tell us what you have in mind and take the first
           step towards creating your space.
         </p>
+
         <a class="btn btn-primary"
            href="https://wa.me/918521579125?text=Hello%20Craft%20Infra%20%26%20Design%2C%20I%20would%20like%20to%20discuss%20a%20project."
            target="_blank" rel="noopener">
           Discuss Your Project
         </a>
+
       </div>
+
     </div>
   </div>
 </section>
@@ -978,12 +1230,18 @@ footer {
 <!-- FOOTER -->
 <footer>
   <div class="container footer-inner">
-    <div class="footer-brand">Craft Infra & Design</div>
+
+    <div class="footer-brand">
+      Craft Infra & Design
+    </div>
+
     <p>TURNING VISIONS INTO REALITY</p>
+
     <p>
       © <span id="year"></span> Craft Infra & Design.
       All Rights Reserved.
     </p>
+
   </div>
 </footer>
 
