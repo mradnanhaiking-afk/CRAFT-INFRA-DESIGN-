@@ -199,7 +199,7 @@ header {
   pointer-events:none;
 }
 
-/* SMOKE EFFECT */
+/* SMOKE */
 
 .smoke-layer {
   position:absolute;
@@ -234,15 +234,15 @@ header {
   }
 }
 
-/* NEW PORTRAIT */
+/* PORTRAIT */
 
 .hero-portrait {
   position:absolute;
   z-index:1;
   right:5%;
   bottom:0;
-  width:min(46%,620px);
-  height:91%;
+  width:min(45%,600px);
+  height:86%;
   display:flex;
   align-items:flex-end;
   justify-content:center;
@@ -257,27 +257,24 @@ header {
   height:100%;
   object-fit:contain;
   object-position:center bottom;
-  filter:brightness(.82) contrast(1.08) saturate(.88)
-         drop-shadow(0 8px 28px rgba(0,0,0,.38));
+  filter:brightness(.72) contrast(1.12) saturate(.8);
   -webkit-mask-image:linear-gradient(
     to bottom,
     transparent 0%,
-    black 7%,
-    black 76%,
-    rgba(0,0,0,.92) 88%,
+    black 12%,
+    black 72%,
     transparent 100%
   );
   mask-image:linear-gradient(
     to bottom,
     transparent 0%,
-    black 7%,
-    black 76%,
-    rgba(0,0,0,.92) 88%,
+    black 12%,
+    black 72%,
     transparent 100%
   );
 }
 
-/* DARK BACKGROUND BLENDING */
+/* DARK FADE ON PORTRAIT */
 
 .hero-portrait::after {
   content:"";
@@ -287,14 +284,14 @@ header {
   background:linear-gradient(
     to bottom,
     transparent 25%,
-    rgba(16,13,11,.08) 48%,
-    rgba(16,13,11,.42) 74%,
-    rgba(16,13,11,.96) 100%
+    rgba(16,13,11,.10) 48%,
+    rgba(16,13,11,.55) 75%,
+    rgba(16,13,11,.98) 100%
   );
   pointer-events:none;
 }
 
-/* NAME ON PORTRAIT */
+/* ER SAIF ALI NAME */
 
 .portrait-name {
   position:absolute;
@@ -916,9 +913,9 @@ footer {
   .hero-portrait {
     right:-10%;
     bottom:0;
-    width:78%;
-    height:61%;
-    opacity:.94;
+    width:74%;
+    height:57%;
+    opacity:.82;
   }
 
   .hero-portrait img {
@@ -926,15 +923,15 @@ footer {
     -webkit-mask-image:linear-gradient(
       to bottom,
       transparent 0%,
-      black 9%,
-      black 76%,
+      black 15%,
+      black 72%,
       transparent 100%
     );
     mask-image:linear-gradient(
       to bottom,
       transparent 0%,
-      black 9%,
-      black 76%,
+      black 15%,
+      black 72%,
       transparent 100%
     );
   }
@@ -1075,10 +1072,8 @@ footer {
     <div class="portrait-glow"></div>
 
     <img
-      src="./IMG-20261110-WA0003-transparent.png"
-      alt="Er Saif Ali"
-      loading="eager"
-      fetchpriority="high">
+      src="./IMG-20261110-WA0003.jpg"
+      alt="Er Saif Ali">
 
     <div class="portrait-name">
       <span>ER</span> SAIF ALI
