@@ -234,6 +234,37 @@ header {
   }
 }
 
+/* INSTAGRAM HERO ICON */
+
+.hero-instagram {
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:10px;
+  width:42px;
+  height:42px;
+  margin-bottom:25px;
+  color:var(--gold-light);
+  border:1px solid rgba(198,155,96,.65);
+  border-radius:50%;
+  background:rgba(12,9,7,.45);
+  transition:.3s;
+  pointer-events:auto;
+}
+
+.hero-instagram:hover {
+  color:#fff;
+  background:#9d477d;
+  border-color:#d98bc2;
+  box-shadow:0 0 22px rgba(217,139,194,.35);
+  transform:translateY(-3px);
+}
+
+.hero-instagram svg {
+  width:20px;
+  height:20px;
+}
+
 /* PORTRAIT */
 
 .hero-portrait {
@@ -736,6 +767,23 @@ header {
   overflow-wrap:anywhere;
 }
 
+.contact-detail a:hover {
+  color:var(--gold-light);
+}
+
+.contact-instagram {
+  display:flex!important;
+  align-items:center;
+  gap:10px;
+}
+
+.contact-instagram svg {
+  width:19px;
+  height:19px;
+  color:#d98bc2;
+  flex-shrink:0;
+}
+
 .contact-action {
   margin-top:28px;
   display:flex;
@@ -884,6 +932,12 @@ footer {
     font-size:9px;
     letter-spacing:3px;
     margin-bottom:22px;
+  }
+
+  .hero-instagram {
+    margin-bottom:20px;
+    width:39px;
+    height:39px;
   }
 
   .hero-subtitle {
@@ -1074,6 +1128,27 @@ footer {
 
     <div class="hero-text">
 
+      <!-- INSTAGRAM ICON AT TOP OF HERO -->
+
+      <a
+        class="hero-instagram"
+        href="https://www.instagram.com/craftinfra.ranchi?vrfl=eDRmZzF1d2h2cXBu"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Visit Craft Infra and Design on Instagram"
+        title="Follow us on Instagram">
+
+        <svg viewBox="0 0 24 24" fill="none"
+          stroke="currentColor" stroke-width="1.7"
+          stroke-linecap="round" stroke-linejoin="round"
+          aria-hidden="true">
+          <rect x="3" y="3" width="18" height="18" rx="5"/>
+          <circle cx="12" cy="12" r="4"/>
+          <circle cx="17.5" cy="6.5" r=".8" fill="currentColor"/>
+        </svg>
+
+      </a>
+
       <p class="hero-tag">
         Architecture · Construction · Design
       </p>
@@ -1253,7 +1328,7 @@ footer {
 
       </article>
 
-      <!-- 04 ARCHITECTURAL DESIGN WITH NEW IMAGE -->
+      <!-- 04 ARCHITECTURAL DESIGN -->
 
       <article class="service-card">
 
@@ -1274,7 +1349,7 @@ footer {
 
       </article>
 
-      <!-- 05 3D ELEVATION WITH IMAGE -->
+      <!-- 05 3D ELEVATION -->
 
       <article class="service-card">
 
@@ -1295,7 +1370,7 @@ footer {
 
       </article>
 
-      <!-- 06 RENOVATION & REMODELING -->
+      <!-- 06 RENOVATION -->
 
       <article class="service-card">
 
@@ -1504,6 +1579,33 @@ footer {
           <a href="tel:+918521579125">
             +91 85215 79125
           </a>
+        </div>
+
+        <!-- INSTAGRAM AT THE END OF CONTACT DETAILS -->
+
+        <div class="contact-detail">
+
+          <small>Follow Us On Instagram</small>
+
+          <a
+            class="contact-instagram"
+            href="https://www.instagram.com/craftinfra.ranchi?vrfl=eDRmZzF1d2h2cXBu"
+            target="_blank"
+            rel="noopener noreferrer">
+
+            <svg viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="1.7"
+              stroke-linecap="round" stroke-linejoin="round"
+              aria-hidden="true">
+              <rect x="3" y="3" width="18" height="18" rx="5"/>
+              <circle cx="12" cy="12" r="4"/>
+              <circle cx="17.5" cy="6.5" r=".8" fill="currentColor"/>
+            </svg>
+
+            @craftinfra.ranchi
+
+          </a>
+
         </div>
 
         <div class="contact-action">
