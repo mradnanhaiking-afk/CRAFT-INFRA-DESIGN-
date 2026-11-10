@@ -28,13 +28,20 @@
   box-sizing:border-box;
 }
 
-html { scroll-behavior:smooth; }
+html {
+  scroll-behavior:smooth;
+  scroll-padding-top:90px;
+}
 
 body {
   background:var(--bg);
   color:var(--white);
   font-family:'DM Sans',sans-serif;
   overflow-x:hidden;
+}
+
+img {
+  max-width:100%;
 }
 
 a {
@@ -95,11 +102,13 @@ header {
   display:flex;
   align-items:center;
   gap:12px;
+  min-width:0;
 }
 
 .logo-mark {
   width:42px;
   height:42px;
+  flex-shrink:0;
   border:1px solid var(--gold);
   color:var(--gold-light);
   display:grid;
@@ -112,6 +121,7 @@ header {
   font-family:'Cormorant Garamond',serif;
   font-size:20px;
   letter-spacing:1px;
+  white-space:nowrap;
 }
 
 .logo-small {
@@ -685,6 +695,7 @@ header {
   font-size:11px;
   margin-top:22px;
   text-align:center;
+  line-height:1.8;
 }
 
 /* PROCESS */
@@ -704,6 +715,7 @@ header {
 .process-item {
   border-top:1px solid var(--gold);
   padding-top:22px;
+  min-width:0;
 }
 
 .process-item span {
@@ -749,6 +761,7 @@ header {
 .contact-detail {
   padding:18px 0;
   border-bottom:1px solid var(--line);
+  min-width:0;
 }
 
 .contact-detail small {
@@ -798,6 +811,7 @@ header {
   display:flex;
   flex-direction:column;
   justify-content:center;
+  min-width:0;
 }
 
 .contact-panel h3 {
@@ -845,6 +859,10 @@ footer {
 /* TABLET */
 
 @media(max-width:850px) {
+  .navbar {
+    gap:12px;
+  }
+
   .nav-links { gap:14px; }
   .nav-links a { font-size:9px; }
 
@@ -855,46 +873,97 @@ footer {
   }
 
   .services-grid {
-    grid-template-columns:repeat(2,1fr);
+    grid-template-columns:repeat(2,minmax(0,1fr));
   }
 
   .work-grid {
-    grid-template-columns:repeat(2,1fr);
+    grid-template-columns:repeat(2,minmax(0,1fr));
   }
 
   .process-grid {
-    grid-template-columns:repeat(2,1fr);
+    grid-template-columns:repeat(2,minmax(0,1fr));
+  }
+
+  .hero-text {
+    width:58%;
+  }
+
+  .hero-title {
+    font-size:clamp(65px,10vw,95px);
   }
 }
 
 /* MOBILE */
 
 @media(max-width:600px) {
-  .navbar {
-    min-height:75px;
-    flex-wrap:wrap;
-    padding:12px 0;
+  html {
+    scroll-padding-top:110px;
   }
 
-  .logo-name { font-size:17px; }
+  .container {
+    width:90%;
+  }
+
+  .navbar {
+    min-height:auto;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:10px;
+    padding:12px 0 10px;
+  }
+
+  .logo {
+    width:100%;
+    justify-content:center;
+    gap:9px;
+  }
+
+  .logo-mark {
+    width:35px;
+    height:35px;
+    font-size:21px;
+  }
+
+  .logo-name {
+    font-size:17px;
+  }
+
+  .logo-small {
+    font-size:7px;
+    letter-spacing:2px;
+  }
 
   .nav-links {
     width:100%;
+    display:flex;
     justify-content:space-between;
-    gap:8px;
-    padding-bottom:8px;
+    align-items:center;
+    gap:5px;
+    padding:3px 0 5px;
+  }
+
+  .nav-links li {
+    min-width:0;
   }
 
   .nav-links a {
     font-size:8px;
-    letter-spacing:.7px;
+    letter-spacing:.5px;
+    white-space:nowrap;
   }
 
-  .nav-contact { padding:7px 9px; }
+  .nav-contact {
+    padding:7px 9px;
+  }
+
+  /* MOBILE HERO */
 
   .hero {
-    min-height:760px;
-    height:100svh;
+    min-height:800px;
+    height:auto;
+    max-height:none;
+    align-items:flex-start;
+    padding-top:0;
   }
 
   .hero-background {
@@ -902,18 +971,24 @@ footer {
     opacity:.43;
   }
 
+  .hero-overlay {
+    background:
+      linear-gradient(180deg,rgba(9,8,7,.78),rgba(10,8,7,.30) 45%,rgba(16,13,11,.65) 75%,#100d0b 100%),
+      linear-gradient(90deg,rgba(10,8,7,.65),rgba(10,8,7,.15));
+  }
+
   .hero-watermark {
     font-size:15vw;
     letter-spacing:2px;
-    top:34%;
+    top:35%;
   }
 
   .hero-content {
     width:90%;
-    padding-top:50px;
-    margin-top:0;
-    display:flex;
-    align-items:center;
+    padding-top:150px;
+    padding-bottom:360px;
+    margin:0 auto;
+    display:block;
   }
 
   .hero-text {
@@ -923,46 +998,59 @@ footer {
     z-index:4;
   }
 
-  .hero-title {
-    font-size:clamp(55px,14vw,82px);
-    letter-spacing:1px;
+  .hero-instagram {
+    margin-bottom:19px;
+    width:39px;
+    height:39px;
   }
 
   .hero-tag {
     font-size:9px;
-    letter-spacing:3px;
-    margin-bottom:22px;
+    letter-spacing:2.5px;
+    margin-bottom:23px;
   }
 
-  .hero-instagram {
-    margin-bottom:20px;
-    width:39px;
-    height:39px;
+  .hero-title {
+    font-size:clamp(55px,14vw,82px);
+    letter-spacing:1px;
+    line-height:.82;
   }
 
   .hero-subtitle {
     font-size:9px;
     letter-spacing:2px;
-    margin-top:25px;
+    margin-top:24px;
+    line-height:1.7;
   }
 
   .hero-description {
     font-size:11px;
     max-width:310px;
     margin:14px 0 20px;
+    line-height:1.8;
+  }
+
+  .hero-buttons {
+    gap:9px;
+  }
+
+  .btn {
+    padding:13px 14px;
+    font-size:9px;
+    letter-spacing:1.2px;
   }
 
   .hero-portrait {
-    right:-10%;
-    bottom:2%;
-    width:74%;
-    height:57%;
+    right:-5%;
+    bottom:0;
+    width:75%;
+    height:47%;
     opacity:.82;
   }
 
   .hero-portrait img {
     object-position:center bottom;
-    transform:translateY(-12px);
+    transform:translateY(-8px);
     -webkit-mask-image:linear-gradient(
       to bottom,
       transparent 0%,
@@ -1005,12 +1093,12 @@ footer {
   .smoke-b { right:20%; }
   .smoke-c { right:-15%; }
 
-  .scroll-note { bottom:15px; }
-
-  .btn {
-    padding:13px 16px;
-    font-size:9px;
+  .scroll-note {
+    bottom:12px;
+    font-size:8px;
   }
+
+  /* SECTIONS */
 
   .about,
   .services,
@@ -1020,31 +1108,270 @@ footer {
     padding:80px 0;
   }
 
-  .about-visual { min-height:320px; }
-
-  .about-visual-inner { min-height:280px; }
-
-  .services-grid,
-  .work-grid {
-    grid-template-columns:1fr;
+  .section-title {
+    font-size:clamp(39px,10vw,52px);
+    line-height:1.05;
   }
 
-  .service-card { min-height:210px; }
+  .section-heading {
+    margin-bottom:35px;
+  }
 
-  .service-photo { height:190px; }
+  .section-copy {
+    font-size:12px;
+    line-height:1.8;
+  }
 
-  .work-card { min-height:280px; }
+  /* ABOUT */
+
+  .about-grid {
+    grid-template-columns:minmax(0,1fr);
+    gap:32px;
+  }
+
+  .about-visual {
+    min-height:300px;
+    padding:12px;
+  }
+
+  .about-visual-inner {
+    min-height:280px;
+    padding:20px;
+    background-position:center;
+  }
+
+  .visual-caption {
+    font-size:28px;
+  }
+
+  .about-content p {
+    font-size:13px;
+    line-height:1.85;
+  }
+
+  /* SERVICES */
+
+  .services-grid {
+    grid-template-columns:minmax(0,1fr);
+    gap:16px;
+  }
+
+  .service-card {
+    min-height:auto;
+    padding:20px;
+  }
+
+  .service-photo {
+    height:200px;
+    margin-bottom:18px;
+  }
+
+  .service-number {
+    font-size:32px;
+    margin-bottom:12px;
+  }
+
+  .service-card h3 {
+    font-size:25px;
+  }
+
+  .service-card p {
+    font-size:12px;
+  }
+
+  /* STATEMENT */
+
+  .statement {
+    padding:65px 20px;
+  }
+
+  .statement h2 {
+    font-size:clamp(34px,9vw,48px);
+    line-height:1.12;
+  }
+
+  .statement p {
+    font-size:10px;
+    line-height:1.8;
+  }
+
+  /* WORK */
+
+  .work-grid {
+    grid-template-columns:minmax(0,1fr);
+    gap:16px;
+    margin-top:30px;
+  }
+
+  .work-card {
+    min-height:280px;
+  }
+
+  .work-content {
+    padding:20px;
+  }
+
+  .work-content h3 {
+    font-size:26px;
+  }
+
+  .work-note {
+    font-size:11px;
+    line-height:1.8;
+  }
+
+  /* PROCESS */
 
   .process-grid {
-    grid-template-columns:1fr 1fr;
-    gap:30px 18px;
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    gap:28px 17px;
+    margin-top:38px;
   }
 
-  .contact-panel { padding:25px; }
+  .process-item {
+    padding-top:16px;
+  }
+
+  .process-item h3 {
+    font-size:22px;
+  }
+
+  .process-item p {
+    font-size:11px;
+  }
+
+  /* CONTACT */
+
+  .contact-grid {
+    grid-template-columns:minmax(0,1fr);
+    gap:35px;
+    margin-top:30px;
+  }
+
+  .contact-intro {
+    font-size:13px;
+    line-height:1.85;
+  }
+
+  .contact-detail {
+    padding:15px 0;
+  }
+
+  .contact-detail p,
+  .contact-detail a {
+    font-size:13px;
+  }
+
+  .contact-action {
+    gap:10px;
+  }
+
+  .contact-panel {
+    padding:25px 20px;
+  }
+
+  .contact-panel h3 {
+    font-size:32px;
+  }
+
+  .contact-panel p {
+    font-size:12px;
+  }
+
+  /* FOOTER */
+
+  footer {
+    padding:30px 0;
+  }
 
   .footer-inner {
+    flex-direction:column;
     justify-content:center;
     text-align:center;
+    gap:12px;
+  }
+
+  .footer-inner p {
+    font-size:9px;
+    line-height:1.7;
+  }
+}
+
+/* SMALL MOBILE PHONES */
+
+@media(max-width:380px) {
+  .container {
+    width:92%;
+  }
+
+  .logo-name {
+    font-size:15px;
+  }
+
+  .logo-small {
+    font-size:6px;
+    letter-spacing:1.7px;
+  }
+
+  .nav-links {
+    gap:3px;
+  }
+
+  .nav-links a {
+    font-size:7px;
+    letter-spacing:.2px;
+  }
+
+  .nav-contact {
+    padding:6px 7px;
+  }
+
+  .hero {
+    min-height:790px;
+  }
+
+  .hero-content {
+    padding-top:145px;
+    padding-bottom:350px;
+  }
+
+  .hero-title {
+    font-size:clamp(49px,13.5vw,58px);
+  }
+
+  .hero-tag {
+    font-size:8px;
+    letter-spacing:2px;
+  }
+
+  .hero-subtitle {
+    font-size:8px;
+    letter-spacing:1.5px;
+  }
+
+  .hero-buttons {
+    gap:8px;
+  }
+
+  .btn {
+    padding:12px 11px;
+    font-size:8px;
+    letter-spacing:.8px;
+  }
+
+  .hero-portrait {
+    width:78%;
+    height:44%;
+    right:-8%;
+  }
+
+  .process-grid {
+    grid-template-columns:minmax(0,1fr);
+    gap:25px;
+  }
+
+  .contact-panel h3 {
+    font-size:29px;
   }
 }
 
@@ -1128,7 +1455,7 @@ footer {
 
     <div class="hero-text">
 
-      <!-- INSTAGRAM ICON AT TOP OF HERO -->
+      <!-- INSTAGRAM ICON -->
 
       <a
         class="hero-instagram"
@@ -1265,8 +1592,6 @@ footer {
 
     <div class="services-grid">
 
-      <!-- 01 BUILDING CONSTRUCTION -->
-
       <article class="service-card">
 
         <img
@@ -1285,8 +1610,6 @@ footer {
         </p>
 
       </article>
-
-      <!-- 02 INTERIOR DESIGN -->
 
       <article class="service-card">
 
@@ -1307,8 +1630,6 @@ footer {
 
       </article>
 
-      <!-- 03 EXTERIOR DESIGN -->
-
       <article class="service-card">
 
         <img
@@ -1327,8 +1648,6 @@ footer {
         </p>
 
       </article>
-
-      <!-- 04 ARCHITECTURAL DESIGN -->
 
       <article class="service-card">
 
@@ -1349,8 +1668,6 @@ footer {
 
       </article>
 
-      <!-- 05 3D ELEVATION -->
-
       <article class="service-card">
 
         <img
@@ -1369,8 +1686,6 @@ footer {
         </p>
 
       </article>
-
-      <!-- 06 RENOVATION -->
 
       <article class="service-card">
 
@@ -1581,7 +1896,7 @@ footer {
           </a>
         </div>
 
-        <!-- INSTAGRAM AT THE END OF CONTACT DETAILS -->
+        <!-- INSTAGRAM LINK -->
 
         <div class="contact-detail">
 
@@ -1591,7 +1906,8 @@ footer {
             class="contact-instagram"
             href="https://www.instagram.com/craftinfra.ranchi?vrfl=eDRmZzF1d2h2cXBu"
             target="_blank"
-            rel="noopener noreferrer">
+            rel="noopener noreferrer"
+            aria-label="Visit Craft Infra and Design Instagram">
 
             <svg viewBox="0 0 24 24" fill="none"
               stroke="currentColor" stroke-width="1.7"
